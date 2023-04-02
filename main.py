@@ -1,48 +1,141 @@
 import requests
 from PIL import Image
 import os
-import ast
+from multiprocessing import Pool
 from bs4 import BeautifulSoup
+import time
+from functools import partial
 
 class MangaScrapper:
     def __init__(self,manganame):
         #Assignments
-        self.manganame = manganame.replace(' ','-')
+        self.manganame = manganame.title().replace(' ','-')
 
         self.chap1url = f'https://manga4life.com/read-online/{self.manganame}-chapter-1-index-1.html'
-        self.chapurl = 'https://manga4life.com/read-online/{manganame}-chapter-{chapternumber}-index-{index}.html'
+        self.chapurl = f'https://manga4life.com/read-online/{self.manganame}-' + 'chapter-{chapternumber}-index-{index}.html'
         
-        self.mainurlportion = 'https://{curpathname}/manga/{manganame}{directory}'
-        self.chappageportion = '{chapternumber}-{pagenumber}.png'
+        self.mainurlportion = 'https://{curpathname}/manga/'+self.manganame+'{directory}'
+        self.chappageportion = '/{chapternumber}-{pagenumber}.png'
 
         #Checking if the directories required exists
-        self.checkdir('manga_pages')
-        self.checkdir('manga_chapters_pdf')
-        self.checkdir ('onedownloads')
+        self.required_dirs = ['manga_pages','manga_chapters_pdf','onedownloads']
+        for dir in self.required_dirs:
+            self.checkdir(dir)
 
+        self.clear('manga_pages')
+
+        t1 = time.time()
         r = self.get_pagescript(self.chap1url)
+        print("Finished in: ", time.time()-t1,"seconds")
+
         if r!=True:
             self.__chapters = None
             return
 
-        #Finding domain of the image
+        #Finding all the chapters in the manga
         self.__chapters = self.extract_pagedata(self.page_source,'vm.CHAPTERS = [{"Chapter"','vm.CHAPTERS = ')
-
+        self.__chapters = self.convert_2_list(self.__chapters)
+        self.chapter_numbers()
     
-    def fill_url(self,curpathname,manganame,directory):
+
+    def clear(self,dir):
+        pages = os.listdir('manga_pages')
+        for page in pages:
+            os.remove(f"{dir}/{page}")
+
+        
+    def chapter_numbers(self):
+        self.chapternumbers = []
+        for chapter in self.chapters:
+            chapnum = chapter['Chapter'][1:]
+            chapnum = float(chapnum[:-1] + '.' + chapnum[-1])
+            if (chapnum.is_integer()):
+                chapnum = int(chapnum)
+            chapnum = f"{chapter['Type']} {chapnum}"
+            self.chapternumbers.append(chapnum)
+
+    def convert_2_list(self,chaptersstring):
+        chaptersstring = chaptersstring[1:-1]
+        chapterlst = []
+        dictionaryopened  = False
+        quotations = [False,""]
+        dictionary = {}
+        key = value = ''
+        keytime = True
+        for character in chaptersstring:
+
+            if quotations[1] == character:
+                quotations = [False,""]
+                if keytime==False:
+                    dictionary[key] = value
+                    keytime = True
+                    key = value = ''
+    
+            
+            elif quotations[0] == False:
+                if character == '{':
+                    dictionaryopened = True
+
+                elif character == '}':
+                    dictionary[key] = value
+                    key = value = ''
+                    keytime = True
+                    chapterlst.append(dictionary)
+                    dictionaryopened = False
+                    dictionary = {}
+                
+                elif character in ['"',"'"]:
+                    quotations = [True,character]
+                
+                elif character == ':':
+                    keytime = False
+
+            elif keytime:
+                key = key + character
+
+            else:
+                value = value + character
+
+        return chapterlst
+
+
+    def find_chapter(self,chapter):
+        return self.chapters[self.chapternumbers.index(chapter)]
+
+    def find_curpath(self,chapter):
+        print(chapter)
+        index_lst = self.chapternumbers.index(chapter)
+        index = self.find_chapter(chapter)['Chapter'][0]
+
+        chapternumber = self.chapternumbers[index_lst].split(' ')[1]
+        chapternumber = self.arrange_no(chapternumber,chapter=True)
+
+        #Extracting the curpathname
+        chapurl = self.chapurl.format(chapternumber=chapternumber,index=index)
+        url_start_index = self.page_source.find('vm.CurPathName = "')
+        url_end_index = url_start_index + self.page_source[url_start_index:].find(';')+1
+        curpathname = self.page_source[url_start_index:url_end_index]
+        curpathname = curpathname.split(' = ')[1][:-1]
+        curpathname = curpathname.split('"')[1]
+        self.curpathname = curpathname
+        self.directory = self.find_chapter(chapter)['Directory']
+        return chapternumber, int(self.find_chapter(chapter)['Page'])
+
+
+    def fill_mainurl(self,curpathname,directory):
         if directory!='':
             directory = '/' + directory
 
-        mainurlportion = self.mainurlportion.format(curpathname=curpathname,manganame=manganame,directory=directory)
+        mainurlportion = self.mainurlportion.format(curpathname=curpathname,directory=directory)
         return mainurlportion
+    
+
+    def fill_chapurl(self,chapter,page):
+        return self.chappageportion.format(chapternumber=self.arrange_no(chapter,chapter=True),pagenumber=self.arrange_no(page,page=True))
 
     @property
     def chapters(self):
         return self.__chapters
-
-
-    def manage_chap_url(self):
-        self.chapurl
 
 
     def get_pagescript(self,url):
@@ -52,8 +145,8 @@ class MangaScrapper:
 
             soup = BeautifulSoup(page_source,'html.parser')
             if soup.title.string == '404 Page Not Found':
-                print("Either the manga doesn't exists or it is just not included in the manga4life site")
-                return "404"
+                print("Either the manga doesn't exists or it is just not included in the manga4life site. Please try again with a valid name")
+                exit()
 
             self.page_source = page_source
             return True
@@ -62,12 +155,11 @@ class MangaScrapper:
             return "Internet Error"
         
 
-
-    def merge_into_pdf(self,chaptername,savedir='manga_chapters_pdf'):
+    def merge_into_pdf(self,chaptername,dir='onedownloads',savedir='manga_chapters_pdf'):
         images = []
-        pages = os.listdir('manga_pages')
+        pages = os.listdir(dir)
         for page in pages:
-            imgsrc = f'manga_pages//{page}'
+            imgsrc = f'{dir}//{page}'
             # print(imgsrc)
             img = Image.open(imgsrc)
             img_rgb = img.convert('RGB')
@@ -79,31 +171,34 @@ class MangaScrapper:
             first_image.save(f'{savedir}//{chaptername}.pdf',save_all=True,append_images=images[1:])
         
         except IndexError:
-            pass
+            print("Something wrong happened")
         
-        
 
-    def download_one(self, chapternumber,savedir='onedownloads'):
-        page = 1
-        while True:
-            r = self.download_one_page(chapternumber,page)
-            if r=='breaktime':
-                break
+    def download_one(self, chapter,fromdir='manga_pages',save_dir='onedownloads'):
+        chapternumber, totalpages = self.find_curpath(chapter=chapter)
+        pages = list(range(1,totalpages+1))
+        p = Pool()
+        r = p.map(partial(self.download_one_page,chapternumber=chapternumber,savedir=fromdir,directdownload=False),pages)
+        print(r)
+        p.close()
+        p.join()
 
-            page += 1
-
-        self.merge_into_pdf(self.arrange_no(chapternumber,chapter=True))
+        self.merge_into_pdf(self.arrange_no(chapternumber,chapter=True),dir='manga_pages',savedir='manga_chapters_pdf')
 
 
-    def download_one_page(self,chapternumber,pagenumber,savedir='onedownloads'):
+    def download_one_page(self,pagenumber,chapternumber,savedir='onedownloads',directdownload=True):
+        if (directdownload):
+            chapternumber, totalpages = self.find_curpath(chapter=chapternumber)
+
         url = self.url(chapternumber,pagenumber)
         response = self.request(url)
         if response[0] == False:
-            return 'breaktime'
-        print(url)
+            return response[1]
 
         with open(f'{savedir}/{self.arrange_no(chapternumber)}-{self.arrange_no(pagenumber)}.png','wb') as f:
             f.write(response[1].content)
+        
+        return f"Done: Chapter {chapternumber},Page {pagenumber}"
 
 
     def extract_pagedata(self,string,find,remove):
@@ -122,12 +217,21 @@ class MangaScrapper:
 
 
     def download_many(self, chapterstart, chapterend):
-        for chapter in range(chapterstart,chapterend+1):
-            self.download_one(chapter)
+        istart = self.chapternumbers.index(str(chapterstart))
+        iend = self.chapternumbers.index(str(chapterend))
+
+        for i in range(istart,iend+1):
+            self.download_one(self.chapternumbers[i])
     
+
     @staticmethod
     def arrange_no(no,chapter=False,page=False):
         no = str(no)
+        d = ''
+        if '.' in no:
+            no,d = no.split('.')
+            d = '.'+d
+
         if chapter:
             n = 4
         else:
@@ -135,8 +239,9 @@ class MangaScrapper:
 
         while len(no)<n:
             no = '0'+no
+            
+        return no + d
 
-        return no
 
     @staticmethod
     def request(url):
@@ -144,6 +249,7 @@ class MangaScrapper:
             response = requests.get(url)
             if response.status_code == 404:
                 return False,'Page not found'
+            
             return True,response
 
         except requests.exceptions.ConnectionError:
@@ -157,11 +263,7 @@ class MangaScrapper:
             return True
 
     def url(self,chapter,page):
-        return self.chappageportion.format(chapternumber=self.arrange_no(chapter,chapter=True),pagenumber=self.arrange_no(page,page=True))
-                                
+        return self.fill_mainurl(self.curpathname,self.directory) + self.fill_chapurl(chapter,page)                               
 
 if __name__ == "__main__":
-    scrapper = MangaScrapper('Wingdom')
-    print(scrapper.chapters)
-
-    # scrapper.download_many(10,14)
+    scrapper = MangaScrapper('One Piece')
