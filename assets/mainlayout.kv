@@ -1,0 +1,164 @@
+<Label>:
+    color: 0,0,0,1
+
+<MangasLabel@Label>:
+    canvas.before:
+        Color:
+            rgba: root.rgba_converter([220,220,220,1])
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
+<MainLayout>:
+    name: 'homelayout'
+    availablemangas:available_mangas
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 1,1,1,1
+            
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        BoxLayout:
+            padding: 0,0,0,5
+            orientation: 'vertical'
+            size: root.size
+
+            Label:
+                color: 1,1,1,1
+                font_family: 'assets/fonts/Oswald.ttf'
+                font_size: 20
+                id: heading
+                text: 'M4MangaReader'
+                size_hint: 1,None
+                height: 50
+                canvas.before:
+                    Color:
+                        rgba: 0,0.2,1,0.8
+
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [4]
+
+            BoxLayout:
+                padding: 0,20,0,10
+                # spacing: 15
+                orientation: 'vertical'
+                MangasLabel:
+                    text: "Available mangas"
+                    font_size: "20dp"
+                    size_hint: 1,None
+                    height: '60dp'
+
+                BoxLayout:
+                    canvas.before:
+                        Color:
+                            rgba: 0,0,0,1
+
+                        Line:
+                            rectangle: (self.x,self.y,self.width,self.height)
+                    orientation: 'vertical'   
+                    ScrollView:
+                        BoxLayout:
+                            padding: 5,15,5,10
+                            id: available_mangas
+                            size_hint: 1,None
+                            height: self.minimum_height
+                            orientation: 'vertical'
+
+            Button:
+                text: 'Download a manga'
+                size_hint: 0.5, 0.1
+                pos_hint: {"center_x":0.5}
+                color: (1,1,1,1)
+                on_state: root.onstate(self)
+                font_size: 20
+                on_press:
+                    root.manager.transition.direction = 'left'
+                    root.manager.current = 'downloadinglayout'
+
+                canvas.before:
+                    Color: 
+                        rgba: (0,0,1,1) if self.state == 'normal' else (0,0,1,0.7)
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [20]
+
+
+<DownloadingLayout>:
+    name: 'downloadinglayout'
+    mangadata: mangadata
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: (1,1,1,1)
+            
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        
+        BoxLayout:
+            orientation: 'vertical'
+            BoxLayout:
+                size_hint: 1,.1
+                Button:
+                    size_hint: 0.2,1
+                    text: '<--'
+                    on_release:
+                        root.manager.transition.direction = 'right'
+                        root.manager.current = 'homelayout'
+
+                    canvas.before:
+                        Color:
+                            rgba: (1,1,1,1) if self.state == 'normal' else (0.9,0.9,0.9,0.9)
+
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+
+                MangasLabel:
+                    text: 'Downloading Mangas'
+
+
+            BoxLayout:
+                orientation: 'vertical'
+                BoxLayout:
+                    padding: 10
+                    size_hint: 1,0.1
+                    Label:
+                        text: 'Manga Name:'
+                    BoxLayout:
+                        spacing: 5
+                        TextInput:
+                            multiline: False
+                            font_size: 16
+                            background_color: (1,1,1,1)
+                            id: manganame
+                        
+                        Button:
+                            # background_color:
+                            text: 'Search'
+                            on_release: root.clicked_view(manganame,mangadata)
+                
+                ScrollView:
+                    do_scroll_x: False
+                    do_scroll_y: True
+                    BoxLayout:
+                        id: mangadata
+                        size_hint_y: None
+                        orientation: 'vertical'
+                        height: self.minimum_height
+                        padding: 5,20,5,3
+                        spacing:20
+                        
+
+
+<Button>:
+    background_normal: ''
+    background_color: 1,1,1,0 
+    font_family: 'assets/fonts/Oswald.ttf'

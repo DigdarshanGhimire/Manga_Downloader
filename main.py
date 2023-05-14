@@ -5,9 +5,14 @@ from multiprocessing import Pool
 from bs4 import BeautifulSoup
 import time
 from functools import partial
+import io
+import asyncio
 
 class MangaScrapper:
     def __init__(self,manganame):
+        #Status message
+        self.message = "Success"
+
         #Assignments
         self.manganame = manganame.title().replace(' ','-')
 
@@ -16,6 +21,9 @@ class MangaScrapper:
         
         self.mainurlportion = 'https://{curpathname}/manga/'+self.manganame+'{directory}'
         self.chappageportion = '/{chapternumber}-{pagenumber}.png'
+
+        #Getting manga poster
+        self.mangaposterurl = f'https://temp.compsci88.com/cover/{self.manganame}.jpg'
 
         #Checking if the directories required exists
         self.required_dirs = ['manga_pages','manga_chapters_pdf','onedownloads']
@@ -35,6 +43,7 @@ class MangaScrapper:
         #Finding all the chapters in the manga
         self.__chapters = self.extract_pagedata(self.page_source,'vm.CHAPTERS = [{"Chapter"','vm.CHAPTERS = ')
         self.__chapters = self.convert_2_list(self.__chapters)
+        self.__chapters.sort(key=lambda k: int(k['Chapter']))
         self.chapter_numbers()
     
 
@@ -42,6 +51,10 @@ class MangaScrapper:
         pages = os.listdir('manga_pages')
         for page in pages:
             os.remove(f"{dir}/{page}")
+    
+    @property
+    def poster(self):
+        return self.request(self.mangaposterurl)
 
         
     def chapter_numbers(self):
@@ -53,6 +66,9 @@ class MangaScrapper:
                 chapnum = int(chapnum)
             chapnum = f"{chapter['Type']} {chapnum}"
             self.chapternumbers.append(chapnum)
+
+
+
 
     def convert_2_list(self,chaptersstring):
         chaptersstring = chaptersstring[1:-1]
@@ -137,7 +153,6 @@ class MangaScrapper:
     def chapters(self):
         return self.__chapters
 
-
     def get_pagescript(self,url):
         try:
             response = requests.get(url)
@@ -145,46 +160,44 @@ class MangaScrapper:
 
             soup = BeautifulSoup(page_source,'html.parser')
             if soup.title.string == '404 Page Not Found':
-                print("Either the manga doesn't exists or it is just not included in the manga4life site. Please try again with a valid name")
-                exit()
+                self.message = "Either the manga doesn't exists or it is just not included in the manga4life site. Please try again with a valid name"
+                print ("Either the manga doesn't exists or it is just not included in the manga4life site. Please try again with a valid name")
 
             self.page_source = page_source
             return True
 
         except requests.exceptions.ConnectionError:
             return "Internet Error"
-        
+
 
     def merge_into_pdf(self,chaptername,dir='onedownloads',savedir='manga_chapters_pdf'):
         images = []
-        pages = os.listdir(dir)
-        for page in pages:
-            imgsrc = f'{dir}//{page}'
-            # print(imgsrc)
-            img = Image.open(imgsrc)
+        for page in self.pageslist:
+            img = Image.open(io.BytesIO(page))
             img_rgb = img.convert('RGB')
             images.append(img_rgb)
-            os.remove(imgsrc)
+            print(images)
 
+        first_image = images[0]
         try:
-            first_image = images[0]
             first_image.save(f'{savedir}//{chaptername}.pdf',save_all=True,append_images=images[1:])
+            return f"Download Successful of: {chaptername}.pdf"
         
         except IndexError:
             print("Something wrong happened")
         
 
     def download_one(self, chapter,fromdir='manga_pages',save_dir='onedownloads'):
+        self.pageslist = []
         chapternumber, totalpages = self.find_curpath(chapter=chapter)
         pages = list(range(1,totalpages+1))
         p = Pool()
-        r = p.map(partial(self.download_one_page,chapternumber=chapternumber,savedir=fromdir,directdownload=False),pages)
-        print(r)
+        self.pageslist = p.map(partial(self.download_one_page,chapternumber=chapternumber,savedir=fromdir,directdownload=False),pages)
         p.close()
         p.join()
 
         self.merge_into_pdf(self.arrange_no(chapternumber,chapter=True),dir='manga_pages',savedir='manga_chapters_pdf')
-
+        del self.pageslist
 
     def download_one_page(self,pagenumber,chapternumber,savedir='onedownloads',directdownload=True):
         if (directdownload):
@@ -195,10 +208,12 @@ class MangaScrapper:
         if response[0] == False:
             return response[1]
 
-        with open(f'{savedir}/{self.arrange_no(chapternumber)}-{self.arrange_no(pagenumber)}.png','wb') as f:
-            f.write(response[1].content)
-        
-        return f"Done: Chapter {chapternumber},Page {pagenumber}"
+        if directdownload:
+            with open(f'{savedir}/{self.arrange_no(chapternumber)}-{self.arrange_no(pagenumber)}.png','wb') as f:
+                f.write(response[1].content)
+                return f'Download of Chapter {chapternumber},Page {pagenumber} successful'
+
+        return response[1].content
 
 
     def extract_pagedata(self,string,find,remove):
@@ -264,6 +279,3 @@ class MangaScrapper:
 
     def url(self,chapter,page):
         return self.fill_mainurl(self.curpathname,self.directory) + self.fill_chapurl(chapter,page)                               
-
-if __name__ == "__main__":
-    scrapper = MangaScrapper('One Piece')

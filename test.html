@@ -1,0 +1,1436 @@
+<!doctype html>
+<html lang="en" ng-app="MainApp" ng-controller="MainCtrl as vm">
+
+<head>
+	<title>Kingdom | MangaLife</title>
+	<meta name="description"
+		content="Read Kingdom Online For Free. The latest Manga Chapters of Kingdom are now available.">
+
+	<!-- META OG -->
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Kingdom | MangaLife" />
+	<meta property="og:description"
+		content="Read Kingdom Online For Free. The latest Manga Chapters of Kingdom are now available." />
+	<meta property="og:site_name" content="" />
+	<meta property="og:url" content="https://manga4life.com/manga/Kingdom" />
+	<meta property="og:image" content="https://temp.compsci88.com/cover/Kingdom.jpg" />
+	<meta property="fb:admins" content="100009420386052" />
+	<meta property="fb:app_id" content="1609343042699696" />
+
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@animemangastuff">
+	<meta name="twitter:title" content="Kingdom | MangaLife">
+	<meta name="twitter:description"
+		content="Read Kingdom Online For Free. The latest Manga Chapters of Kingdom are now available." />
+	<meta name="twitter:creator" content="@animemangastuff">
+	<meta name="twitter:image:src" content="https://temp.compsci88.com/cover/Kingdom.jpg">
+	<meta name="twitter:domain" content="manga4life.com">
+
+	<!-- Canonical Tag -->
+	<link rel="canonical" href="https://manga4life.com/manga/Kingdom">
+
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no" />
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://manga4life.com/rss/Kingdom.xml" />
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="/media/favicon.png">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+	<!-- ANGULAR STUFF -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular-sanitize.min.js"></script>
+	<!-- Sanitize -->
+	<script>
+		var app = angular.module("MainApp", ['ngSanitize']);
+	</script>
+
+	<!-- Captcha -->
+	<script src="https://www.google.com/recaptcha/api.js?render=6LcAgscUAAAAAJfDHYib4Z9tm4SSvNF5U6icqDlm"></script>
+
+	<!-- Custom CSS -->
+	<style>
+		body,
+		html {
+			background-color: #000000;
+		}
+	</style>
+
+	<!-- STANDARD CSS -->
+	<style>
+		* {
+			min-height: .01px
+		}
+
+		body,
+		html {
+			height: 100%
+		}
+
+		.ng-cloak,
+		[ng-cloak],
+		[ng\:cloak] {
+			display: none !important
+		}
+
+		a:active,
+		a:focus {
+			outline: 0;
+			-moz-outline-style: none
+		}
+
+		.back-to-top {
+			position: fixed;
+			bottom: 3em;
+			right: 0;
+			text-decoration: none;
+			font-size: 20px;
+			padding: 4px 10px 7px 12px;
+			display: none;
+			z-index: 100000;
+			border: 1px solid #ccc;
+			border-right: none;
+			color: #ccc;
+			background-color: #fff
+		}
+
+		.grecaptcha-badge {
+			opacity: 0 !important
+		}
+
+		h1 {
+			font-size: 30px
+		}
+
+		input::placeholder,
+		textarea::placeholder {
+			color: #ccc !important;
+			opacity: 1
+		}
+
+		input:-ms-input-placeholder,
+		textarea::placeholder {
+			color: #ccc !important
+		}
+
+		input::-ms-input-placeholder,
+		textarea::placeholder {
+			color: #ccc !important
+		}
+
+		.btn,
+		input,
+		select,
+		textarea {
+			box-shadow: none !important;
+			-moz-box-shadow: none !important;
+			-webkit-box-shadow: none !important
+		}
+
+		.required {
+			color: red
+		}
+
+		.bg-dark {
+			background-color: #444 !important
+		}
+
+		.MainDiv {
+			min-height: calc(100% - 156px);
+			margin-bottom: -95px
+		}
+
+		.TopContainer {
+			padding-top: 20px;
+			padding-bottom: 20px
+		}
+
+		.footer,
+		.push {
+			height: 95px
+		}
+
+		.footer {
+			padding: 20px 0;
+			text-align: center;
+			color: #ccc;
+			font-size: 18px
+		}
+
+		.footer a {
+			margin: 0 3px;
+			font-size: 14px;
+			color: #fff
+		}
+
+		.top-20 {
+			margin-top: 20px
+		}
+
+		.top-15 {
+			margin-top: 15px
+		}
+
+		.top-10 {
+			margin-top: 10px
+		}
+
+		.top-5 {
+			margin-top: 5px
+		}
+
+		.bottom-20 {
+			margin-bottom: 20px
+		}
+
+		.bottom-15 {
+			margin-bottom: 15px
+		}
+
+		.bottom-10 {
+			margin-bottom: 10px
+		}
+
+		.bottom-5 {
+			margin-bottom: 5px
+		}
+
+		.navbar {
+			padding: 0 !important;
+			background-color: #2B2B2B
+		}
+
+		.navbar-brand {
+			margin: 0 !important;
+			padding: 10px 15px
+		}
+
+		.nav-item a {
+			color: #ddd !important;
+			padding: 10px 15px !important
+		}
+
+		.NavBtnSm {
+			color: #ccc !important;
+			padding: 12px 15px
+		}
+
+		.NavBtnSm:hover,
+		.nav-item a:hover,
+		.nav-item:hover,
+		.navbar-brand:hover {
+			color: #fff !important;
+			text-decoration: none !important
+		}
+
+		.NavBtnSm.active,
+		.nav-item.active {
+			color: #fff
+		}
+
+		.navbar .dropdown-menu-right {
+			border: none;
+			margin: 0;
+			padding: 0;
+			border-radius: 0;
+			background-color: #202020
+		}
+
+		.navbar .dropdown-menu-right a:hover {
+			background-color: #393939;
+			color: white;
+		}
+
+		.MenuSmall {
+			margin-top: 10px !important
+		}
+
+		.MenuSmall a {
+			padding-left: 10px;
+			padding-right: 10px;
+			color: #fff
+		}
+
+		#TopBigLogo {
+			max-height: 80px;
+			margin-top: 10px;
+			margin-bottom: 10px
+		}
+
+		#TopSmallLogo {
+			max-width: 200px;
+			margin-top: 10px
+		}
+
+		.QuickSearch * {
+			border-radius: 0;
+			border: none
+		}
+
+		.QuickSearch .form-control {
+			border-right: none
+		}
+
+		.QuickSearch .input-group-text {
+			background-color: #fff;
+			padding-left: 15px;
+			padding-right: 15px
+		}
+
+		.QuickSearch .mx-auto {
+			background-color: #ff0;
+			margin: 10px;
+			text-align: center
+		}
+
+		#Nav .LogoBox {
+			text-align: left
+		}
+
+		@media(max-width:768px) {
+			#Nav .LogoBox {
+				text-align: center
+			}
+		}
+
+		.QuickSearch .SearchResult {
+			position: absolute;
+			top: 42px;
+			left: 0;
+			padding: 15px;
+			width: 100%;
+			z-index: 1000
+		}
+
+		.QuickSearch .SearchResultLabel {
+			display: inline-block;
+			max-width: calc(100% - 60px);
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis
+		}
+
+		.QuickSearch .SearchResultCover {
+			background-color: #ddeaff
+		}
+
+		.SearchLink {
+			display: block !important;
+			color: #343a40
+		}
+
+		.SearchLink:hover {
+			cursor: pointer;
+			color: #fff;
+			background-color: #2B2B2B;
+			text-decoration: none
+		}
+
+		.NoResults {
+			padding: 10px;
+			color: #000
+		}
+
+		.QuickSearch .input-group * {
+			border-color: #bbb
+		}
+
+		.navbar-toggler {
+			border: none;
+			box-shadow: none !important;
+			-moz-box-shadow: none !important;
+			-webkit-box-shadow: none !important;
+			outline: 0 !important
+		}
+
+		.navbar-brand {
+			font-size: 16px;
+			color: #999c9f !important
+		}
+
+		.navbar-brand:hover {
+			color: #cccdcf !important
+		}
+
+		.navbar-brand.active {
+			color: #fff !important
+		}
+
+		.phone-link {
+			color: #fff !important
+		}
+
+		.phone-link:hover {
+			color: #ccc !important
+		}
+
+		.MainContainer {
+			min-height: calc(100vh - 144px);
+			padding-top: 15px;
+			padding-bottom: 15px
+		}
+
+		@media(max-width:768px) {
+			.MainContainer {
+				padding-top: 10px;
+				padding-bottom: 10px
+			}
+		}
+
+		.Box {
+			margin-top: 15px;
+			margin-bottom: 15px
+		}
+
+		@media(max-width:768px) {
+			.Box {
+				margin-top: 5px;
+				margin-bottom: 5px
+			}
+		}
+
+		.BoxHeader {
+			background: #2B2B2B;
+			padding: 10px 15px;
+			color: #fff;
+			font-size: 18px
+		}
+
+		.BoxBody {
+			background: #fff;
+			padding: 10px 15px
+		}
+
+		#Footer {
+			text-align: center;
+			background: #444;
+			height: 100px;
+			padding-top: 25px;
+			color: #eee
+		}
+
+		#Footer a {
+			margin: 0 5px;
+			color: #fff
+		}
+	</style>
+
+	<!-- ADSENSE -->
+	<script data-ad-client="ca-pub-6594703833258800" async
+		src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+	<!-- Hover Wooble -->
+	<style>
+		@-webkit-keyframes hvr-wobble-skew {
+			16.65% {
+				-webkit-transform: skew(-12deg);
+				transform: skew(-12deg)
+			}
+
+			33.3% {
+				-webkit-transform: skew(10deg);
+				transform: skew(10deg)
+			}
+
+			49.95% {
+				-webkit-transform: skew(-6deg);
+				transform: skew(-6deg)
+			}
+
+			66.6% {
+				-webkit-transform: skew(4deg);
+				transform: skew(4deg)
+			}
+
+			83.25% {
+				-webkit-transform: skew(-2deg);
+				transform: skew(-2deg)
+			}
+
+			100% {
+				-webkit-transform: skew(0);
+				transform: skew(0)
+			}
+		}
+
+		@keyframes hvr-wobble-skew {
+			16.65% {
+				-webkit-transform: skew(-12deg);
+				transform: skew(-12deg)
+			}
+
+			33.3% {
+				-webkit-transform: skew(10deg);
+				transform: skew(10deg)
+			}
+
+			49.95% {
+				-webkit-transform: skew(-6deg);
+				transform: skew(-6deg)
+			}
+
+			66.6% {
+				-webkit-transform: skew(4deg);
+				transform: skew(4deg)
+			}
+
+			83.25% {
+				-webkit-transform: skew(-2deg);
+				transform: skew(-2deg)
+			}
+
+			100% {
+				-webkit-transform: skew(0);
+				transform: skew(0)
+			}
+		}
+
+		.hvr-wobble-skew {
+			display: inline-block;
+			vertical-align: middle;
+			-webkit-transform: perspective(1px) translateZ(0);
+			transform: perspective(1px) translateZ(0);
+			box-shadow: 0 0 1px transparent
+		}
+
+		.hvr-wobble-skew:active,
+		.hvr-wobble-skew:focus,
+		.hvr-wobble-skew:hover {
+			-webkit-animation-name: hvr-wobble-skew;
+			animation-name: hvr-wobble-skew;
+			-webkit-animation-duration: 1s;
+			animation-duration: 1s;
+			-webkit-animation-timing-function: ease-in-out;
+			animation-timing-function: ease-in-out;
+			-webkit-animation-iteration-count: 1;
+			animation-iteration-count: 1
+		}
+
+		.fade-in {
+			animation: fadeIn ease 1s;
+			-webkit-animation: fadeIn ease 1s;
+			-moz-animation: fadeIn ease 1s;
+			-o-animation: fadeIn ease 1s;
+			-ms-animation: fadeIn ease 1s
+		}
+
+		@keyframes fadeIn {
+			0% {
+				opacity: 0
+			}
+
+			100% {
+				opacity: 1
+			}
+		}
+
+		@-moz-keyframes fadeIn {
+			0% {
+				opacity: 0
+			}
+
+			100% {
+				opacity: 1
+			}
+		}
+
+		@-webkit-keyframes fadeIn {
+			0% {
+				opacity: 0
+			}
+
+			100% {
+				opacity: 1
+			}
+		}
+
+		@-o-keyframes fadeIn {
+			0% {
+				opacity: 0
+			}
+
+			100% {
+				opacity: 1
+			}
+		}
+
+		@-ms-keyframes fadeIn {
+			0% {
+				opacity: 0
+			}
+
+			100% {
+				opacity: 1
+			}
+		}
+	</style>
+
+	<!-- Custom Styling -->
+	<style>
+		h1 {
+			font-size: 28px
+		}
+
+		.BoxBody .list-group-item {
+			padding: 5px 0
+		}
+
+		.mlabel {
+			font-weight: 600
+		}
+
+		.CoverImage {
+			background: #f2f2f2;
+			text-align: center
+		}
+
+		@media (max-width:575px) {
+			.CoverImage img {
+				width: 50%;
+				margin: 0 auto
+			}
+		}
+
+		.ChapterLink {
+			padding: 8px 15px !important;
+			border-radius: 0 !important
+		}
+
+		.ChapterLink:visited {
+			color: gray
+		}
+
+		.LastRead {
+			color: #9374c2;
+			margin-left: 10px;
+			font-style: italic
+		}
+
+		.ShowAllChapters {
+			padding: 8px 15px !important;
+			border-radius: 0 !important;
+			color: green;
+			font-weight: 700;
+			cursor: pointer
+		}
+
+		.ShowAllChapters:hover {
+			color: #4caf50
+		}
+
+		.CommentArea h2 {
+			font-size: 20px;
+			font-weight: 400
+		}
+
+		.CommentArea {
+			border: 1px solid #ccc;
+			padding: 10px;
+			background: #f9f9f9
+		}
+
+		.CommentForm {
+			border: 1px solid #ccc;
+			padding: 10px;
+			background: #fff
+		}
+
+		.CommentForm textarea {
+			background: #f7fffd
+		}
+
+		.Content {
+			white-space: pre-wrap;
+			white-space: -moz-pre-wrap;
+			white-space: -pre-wrap;
+			white-space: -o-pre-wrap;
+			word-wrap: break-word
+		}
+
+		.Comment {
+			border: 1px solid #ccc;
+			padding: 10px;
+			background: #fff
+		}
+
+		.CommentTop,
+		.CommentTop a {
+			font-size: 14px;
+			color: gray
+		}
+
+		.CommentTop strong {
+			font-weight: 600
+		}
+
+		.DeleteComment {
+			color: #ccc !important
+		}
+
+		.DeleteComment:hover {
+			color: gray !important
+		}
+
+		.Reply {
+			border-top: 1px solid #eee;
+			padding-left: 20px
+		}
+
+		.ReplyNav {
+			color: gray;
+			font-size: 14px
+		}
+
+		.ReplyNav a,
+		.ReplyNav span {
+			color: gray;
+			margin-right: 5px
+		}
+
+		.ReplyMessage {
+			padding-left: 20px
+		}
+
+		.ViewMoreReplies {
+			background: #f2f2f2;
+			padding: 5px;
+			border-radius: 5px;
+			text-align: center;
+			color: gray;
+			cursor: pointer
+		}
+
+		.RelatedManga {
+			padding: 10px 15px 15px 15px;
+			background: #f2f2f2;
+			border: 1px solid #ddd
+		}
+
+		.RelatedManga h3 {
+			font-size: 18px;
+			font-weight: 600;
+			color: gray
+		}
+
+		.RelatedLink {
+			color: #fff
+		}
+
+		.RelatedLink:hover {
+			color: #ff0;
+			text-decoration: none
+		}
+
+		.RelatedLink .ImgHolder {
+			position: relative;
+			overflow: hidden;
+			padding-bottom: 103%;
+			background: #000
+		}
+
+		@media (min-width:1200px) {
+			.RelatedLink .ImgHolder {
+				padding-bottom: 117%
+			}
+		}
+
+		.RelatedLink .ImgHolder img {
+			position: absolute
+		}
+
+		.RelatedLink .NameHolder {
+			background: #2b2b2b;
+			text-align: center;
+			padding: 5px 10px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis
+		}
+
+		.ResponsiveVideo {
+			position: relative;
+			padding-bottom: 56.25%;
+			height: 0
+		}
+
+		.ResponsiveVideo iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-md navbar-dark">
+		<div class="container">
+			<a class="navbar-brand" href="/" style="padding:6px 10px;">
+				<img style="max-height:32px;" src="/media/navbar.brand.small2.png">
+			</a>
+
+			<div class="d-inline-block d-md-none mr-auto">
+				<a href="/search/" class="NavBtnSm">
+					<i class="fas fa-search"></i>
+				</a>
+				<a href="/manga/Tonari-No-Kashiwagi-San" class="NavBtnSm">
+					<i class="fas fa-sync-alt"></i>
+				</a>
+			</div>
+
+			<div class="d-inline-block d-md-none">
+				<a class="NavBtnSm" href="#" data-toggle="modal" data-target="#AuthModal">
+					<i class="fas fa-sign-in-alt"></i>
+					Login
+				</a>
+			</div>
+
+			<div class="collapse navbar-collapse d-none d-md-flex">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a href="/search/" class="nav-link">
+							<i class="fas fa-search"></i>
+							Search
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="/manga/Tonari-No-Kashiwagi-San" class="nav-link">
+							<i class="fas fa-sync-alt"></i>
+							Random
+						</a>
+					</li>
+				</ul>
+
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item d-none d-md-block">
+						<a href="#" class="nav-link" data-toggle="modal" data-target="#AuthModal">
+							<i class="fas fa-sign-in-alt"></i>
+							Login
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<style>
+		.AuthLink {
+			color: gray
+		}
+
+		.AuthLink a {
+			color: gray;
+			margin-right: 15px
+		}
+
+		.AuthLink a:active,
+		.AuthLink a:focus,
+		.AuthLink a:hover {
+			text-decoration: none
+		}
+	</style>
+	<!-- Modal -->
+	<div class="modal fade" id="AuthModal" tabindex="-1" role="dialog" data-backdrop="static"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">
+						<span ng-if="vm.AuthType == 'Login'">
+							<i class="fas fa-sign-in-alt"></i>
+							Login
+						</span>
+						<span ng-if="vm.AuthType == 'Register'">
+							<i class="fas fa-user-plus"></i>
+							New Account
+						</span>
+						<span ng-if="vm.AuthType == 'Reset'">
+							<i class="fas fa-key"></i>
+							Reset Password
+						</span>
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="bottom-10">
+						Email Address:
+						<input class="form-control" type="email" ng-model="vm.AuthEmail" ng-disabled="vm.Authenticating"
+							ng-keyup="$event.keyCode == 13 && vm.AuthToggle()">
+					</div>
+
+					<div class="bottom-10" ng-if="vm.AuthType == 'Register'">
+						Username:
+						<input class="form-control" type="text" ng-model="vm.AuthUsername"
+							ng-disabled="vm.Authenticating" ng-keyup="$event.keyCode == 13 && vm.AuthToggle()">
+					</div>
+
+					<div class="bottom-10" ng-if="vm.AuthType != 'Reset'">
+						Password:
+						<input class="form-control" type="password" ng-model="vm.AuthPassword"
+							ng-disabled="vm.Authenticating" ng-keyup="$event.keyCode == 13 && vm.AuthToggle()">
+					</div>
+
+					<span class="AuthLink" ng-if="vm.AuthType != 'Register'">
+						&middot;
+						<a href="#" onclick="DoNothing(event)" ng-if="!vm.Authenticating"
+							ng-click="vm.ResetSuccess = ''; vm.AuthType = 'Register'">Register</a>
+						<span style="color:#ccc; margin-right:15px;" ng-if="vm.Authenticating">Register</span>
+					</span>
+
+					<span class="AuthLink" ng-if="vm.AuthType != 'Login'">
+						&middot;
+						<a href="#" onclick="DoNothing(event)" ng-if="!vm.Authenticating"
+							ng-click="vm.ResetSuccess = ''; vm.AuthType = 'Login'">Login</a>
+						<span style="color:#ccc; margin-right:15px;" ng-if="vm.Authenticating">Login</span>
+					</span>
+
+					<span class="AuthLink" ng-if="vm.AuthType != 'Reset'">
+						&middot;
+						<a href="#" onclick="DoNothing(event)" ng-if="!vm.Authenticating"
+							ng-click="vm.ResetSuccess = ''; vm.AuthType = 'Reset'">Forgot Password</a>
+						<span style="color:#ccc; margin-right:15px;" ng-if="vm.Authenticating">Forgot Password</span>
+					</span>
+
+					<div class="alert alert-danger top-15" style="margin-bottom:0px;" ng-if="vm.AuthWarning != ''">
+						<i class="fas fa-exclamation-triangle"></i>
+						{{vm.AuthWarning}}
+					</div>
+
+					<div class="alert alert-success top-15" style="margin-bottom:0px;" ng-if="vm.ResetSuccess">
+						<i class="fas fa-check"></i>
+						{{vm.ResetSuccess}}
+					</div>
+				</div>
+				<div class="modal-body" style="border-top:1px solid #DDDDDD;">
+					<button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+
+					<span class="float-right">
+						<button type="button" class="btn btn-primary" ng-if="vm.AuthType == 'Login'"
+							ng-disabled="vm.Authenticating" ng-click="vm.Login()">
+							<i class="fa fa-spin fa-spinner" ng-if="vm.Authenticating"></i>
+							Login
+						</button>
+						<button type="button" class="btn btn-success" ng-if="vm.AuthType == 'Register'"
+							ng-disabled="vm.Authenticating" ng-click="vm.Register()">
+							<i class="fa fa-spin fa-spinner" ng-if="vm.Authenticating"></i>
+							Register
+						</button>
+						<button type="button" class="btn btn-danger" ng-if="vm.AuthType == 'Reset'"
+							ng-disabled="vm.Authenticating" ng-click="vm.ResetPassword()">
+							<i class="fa fa-spin fa-spinner" ng-if="vm.Authenticating"></i>
+							Reset Password
+						</button>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container MainContainer" ng-cloak>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="Box">
+					<div class="BoxBody">
+
+						<div ng-if="vm.Unavailable">
+							<div class="alert alert-info top-5 bottom-10 text-center"
+								style="background:#f0fdff; border-color:#daf1f5;">
+								<i class="far fa-hand-paper"></i>
+
+								Kingdom <span style="font-weight:600;">Chapter
+									{{vm.ChapterDisplay(vm.Chapters[0].Chapter) + 1 | number:0}}</span> is not yet
+								available.
+								Subscribe to get notified when it is released.
+
+								<div class="text-center top-10">
+									<div class="btn-group">
+										<span class="btn btn-outline-secondary"
+											style="border-radius:0px; padding:3px 15px; background:white; color:gray;">{{vm.NumSubs
+											| number:0}}</span>
+										<button class="btn btn-sm btn-danger"
+											style="border-radius:0px; padding:3px 15px;" ng-click="vm.Subscribe()"
+											ng-if="!vm.Subbed" ng-disabled="vm.Subbing">SUBSCRIBE</button>
+										<button class="btn btn-sm btn-outline-secondary"
+											style="border-radius:0px; padding:3px 15px; background:white; color:gray;"
+											ng-click="vm.Subscribe()" ng-if="vm.Subbed" ng-disabled="vm.Subbing">
+											<i class="fa fa-check"></i> SUBSCRIBED
+										</button>
+									</div>
+									<!--
+									<button class="btn btn-sm btn-link" ng-if="vm.Subbed" ng-click="vm.ToggleNotification()" title="Notify New Chapters under Account Tab">
+										<i class="fas fa-bell" ng-if="vm.Notification" style="color:orange;"></i>
+										<i class="fas fa-bell-slash" ng-if="!vm.Notification" style="color:gray;"></i>
+									</button>
+									-->
+								</div>
+
+							</div>
+
+							<div class="row top-15" style="background:#EEE; padding-bottom:15px;"
+								ng-if="vm.Unavailable">
+								<div class="col-lg-5">
+									<div class="top-15">
+										<img class="img-fluid" src="https://i.imgur.com/0uQ1Jan.jpg">
+									</div>
+								</div>
+								<div class="col-lg-7">
+									<div class="top-15 RelatedManga" style="background:white; border:none;">
+										<h3>Related Manga:</h3>
+										<div class="row">
+											<div class="col-sm-3 col-6 top-10"
+												ng-repeat="Series in vm.RelatedSeriesJSON | orderBy:'OrderID':true">
+												<a class="RelatedLink" href="/manga/{{Series.IndexName}}">
+													<div class="ImgHolder">
+														<img class="img-fluid"
+															src="https://temp.compsci88.com/cover/{{Series.IndexName}}.jpg">
+													</div>
+													<div class="NameHolder" ng-bind-html="Series.SeriesName"></div>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-3 col-sm-4 col-3 top-5" style="padding-right:0px;">
+								<img class="img-fluid bottom-5" src="https://temp.compsci88.com/cover/Kingdom.jpg">
+							</div>
+							<div class="d-sm-none col-9 top-5 bottom-5">
+								<div class="bottom-10" style="font-size:22px; line-height:1.3;">
+									Kingdom </div>
+
+								<div class="btn-group">
+									<span class="btn btn-outline-secondary"
+										style="border-radius:0px; padding:2px 12px; background:white; color:gray;">{{vm.NumSubs
+										| number:0}}</span>
+									<button class="btn btn-sm btn-danger" style="border-radius:0px; padding:2px 12px;"
+										ng-click="vm.Subscribe()" ng-if="!vm.Subbed"
+										ng-disabled="vm.Subbing">SUBSCRIBE</button>
+									<button class="btn btn-sm btn-outline-secondary"
+										style="border-radius:0px; padding:2px 12px;" ng-click="vm.Subscribe()"
+										ng-if="vm.Subbed" ng-disabled="vm.Subbing">
+										<i class="fa fa-check"></i> SUBSCRIBED
+									</button>
+									<!--
+									<button class="btn btn-sm btn-link" ng-if="vm.Subbed" ng-click="vm.ToggleNotification()" title="Notify New Chapters under Account Tab">
+										<i class="fas fa-bell" ng-if="vm.Notification" style="color:orange;"></i>
+										<i class="fas fa-bell-slash" ng-if="!vm.Notification" style="color:gray;"></i>
+									</button>
+									-->
+								</div>
+
+								<div class="top-10">
+									<button class="btn btn-outline-secondary"
+										style="padding:0px 5px; border-radius:0px; font-size:12px;"
+										ng-click="vm.ShowInfoMobile = !vm.ShowInfoMobile" ng-if="!vm.ShowInfoMobile">
+										<i class="fas fa-info-circle"></i>
+										show info
+									</button>
+								</div>
+							</div>
+							<div class="col-md-9 col-sm-8 top-5">
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item d-none d-sm-block">
+										<h1>Kingdom</h1>
+									</li>
+
+
+									<li class="list-group-item d-none d-sm-block" style="padding:8px 0px">
+										<div class="btn-group">
+											<span class="btn btn-outline-secondary"
+												style="border-radius:0px; padding:3px 15px; background:white; color:gray;">{{vm.NumSubs
+												| number:0}}</span>
+											<button class="btn btn-sm btn-danger"
+												style="border-radius:0px; padding:3px 15px;" ng-click="vm.Subscribe()"
+												ng-if="!vm.Subbed" ng-disabled="vm.Subbing">SUBSCRIBE</button>
+											<button class="btn btn-sm btn-outline-secondary"
+												style="border-radius:0px; padding:3px 15px;" ng-click="vm.Subscribe()"
+												ng-if="vm.Subbed" ng-disabled="vm.Subbing">
+												<i class="fa fa-check"></i> SUBSCRIBED
+											</button>
+										</div>
+										<!--
+										<button class="btn btn-sm btn-link" ng-if="vm.Subbed" ng-click="vm.ToggleNotification()" title="Notify New Chapters under Account Tab">
+											<i class="fas fa-bell" ng-if="vm.Notification" style="color:orange;"></i>
+											<i class="fas fa-bell-slash" ng-if="!vm.Notification" style="color:gray;"></i>
+										</button>
+										-->
+									</li>
+
+									<li class="list-group-item {{vm.ShowInfoMobile ? '' : 'd-none d-md-block' }}">
+										<span class="mlabel">Alternate Name(s):</span> Kingdom </i>
+
+									<li class="list-group-item {{vm.ShowInfoMobile ? '' : 'd-none d-md-block' }}">
+										<span class="mlabel">Author(s):</span>
+										<a href='/search/?author=HARA Yasuhisa'>HARA Yasuhisa</a>
+										</i>
+
+									<li class="list-group-item {{vm.ShowInfoMobile ? '' : 'd-none d-md-block' }}">
+										<span class="mlabel">Genre(s):</span>
+										<a href='/search/?genre=Action'>Action</a>, <a
+											href='/search/?genre=Drama'>Drama</a>, <a
+											href='/search/?genre=Historical'>Historical</a>, <a
+											href='/search/?genre=Seinen'>Seinen</a>
+										</i>
+
+									<li class="list-group-item {{vm.ShowInfoMobile ? '' : 'd-none d-md-block' }}">
+										<span class="mlabel">Type:</span> <a href="/search/?type=Manga">Manga</a>
+										</i>
+									<li class="list-group-item {{vm.ShowInfoMobile ? '' : 'd-none d-md-block' }}">
+										<span class="mlabel">Released:</span> <a href="/search/?year=2006">2006</a>
+										</i>
+									<li class="list-group-item {{vm.ShowInfoMobile ? '' : 'd-none d-md-block' }}">
+										<span class="mlabel">Status:</span>
+										<a href="/search/?status=Ongoing">Ongoing (Scan)</a>,
+										<a href="/search/?status=Ongoing">Ongoing (Publish)</a>
+										</i>
+									<li class="list-group-item {{vm.ShowInfoMobile ? '' : 'd-none d-md-block' }}">
+										<span class="mlabel">RSS:</span>
+										<a href="/rss/Kingdom.xml" target="_BLANK">RSS Feed</a>
+										</i>
+									<li class="list-group-item {{vm.ShowInfoMobile ? '' : 'd-none d-md-block' }}">
+										<span class="mlabel">Description:</span>
+										<div class="top-5 Content">Millions of years have passed since the times of
+											legends, when the worlds of man and gods were still the same. In these times
+											it was the desires of man that moved the world. It is the era of the 500
+											year war: The warring states peroid. Kingdom is the story of a young boy
+											named Xin who grew into a great general and all the trials and bloodshed
+											that lead him there.</div>
+										</i>
+										</u>
+							</div>
+						</div>
+
+						<div class="alert alert-danger top-10 bottom-5" ng-if="vm.Chapters.length == 0">
+							<i class="fas fa-exclamation-triangle"></i>
+							This Series is currently unavailable. Subscribe to get notified when a new chapter is
+							released.
+						</div>
+
+						<div class="list-group top-10 bottom-5" ng-if="vm.Chapters.length > 0">
+							<a href="/read-online/Kingdom{{vm.ChapterURLEncode(Chapter.Chapter)}}"
+								class="list-group-item ChapterLink"
+								ng-repeat="Chapter in vm.Chapters | limitTo:vm.LimitChapter">
+								<span style="font-weight:600">
+									{{Chapter.Type != '' ? Chapter.Type : 'Chapter'}}
+									{{vm.ChapterDisplay(Chapter.Chapter)}}
+								</span>
+								<i style="color:gray;">{{Chapter.ChapterName}}</i>
+								<span class="badge badge-warning" style="color:white;"
+									ng-if="vm.IsNew(Chapter.Date)">NEW</span>
+								<span class="LastRead" ng-if="Chapter.Chapter == vm.LastChapterRead"><i
+										class="fas fa-map-marker-alt"></i> Last Read</span>
+
+								<span class="float-right d-none d-md-inline"
+									style="color:gray;">{{vm.FormatDate(Chapter.Date)}}</span>
+
+								<div class="d-block d-md-none" style="color:gray; font-size:12px;">
+									{{vm.FormatDate(Chapter.Date)}}</div>
+							</a>
+
+							<div class="list-group-item ShowAllChapters" ng-click="vm.LimitChapter = vm.Chapters.length"
+								ng-if="vm.LimitChapter < vm.Chapters.length - 1">
+								Show All Chapters
+								<i class="fas fa-chevron-down float-right" style="margin-top:4px;"></i>
+							</div>
+
+							<a href="/read-online/Kingdom{{vm.ChapterURLEncode(vm.Chapters[vm.Chapters.length-1].Chapter)}}"
+								class="list-group-item ChapterLink" ng-if="vm.LimitChapter < vm.Chapters.length">
+								<span style="font-weight:600">
+									{{vm.Chapters[vm.Chapters.length-1].Type != '' ?
+									vm.Chapters[vm.Chapters.length-1].Type : 'Chapter'}}
+									{{vm.ChapterDisplay(vm.Chapters[vm.Chapters.length-1].Chapter)}}
+								</span>
+								<i style="color:gray;">{{vm.Chapters[vm.Chapters.length-1].ChapterName}}</i>
+								<span class="badge badge-warning" style="color:white;"
+									ng-if="vm.IsNew(vm.Chapters[vm.Chapters.length-1].Date)">NEW</span>
+								<span class="LastRead"
+									ng-if="vm.Chapters[vm.Chapters.length-1].Chapter == vm.LastChapterRead"><i
+										class="fas fa-map-marker-alt"></i> Last Read</span>
+
+								<span class="float-right d-none d-md-inline"
+									style="color:gray;">{{vm.FormatDate(vm.Chapters[vm.Chapters.length-1].Date)}}</span>
+
+								<div class="d-block d-md-none" style="color:gray; font-size:12px;">
+									{{vm.FormatDate(vm.Chapters[vm.Chapters.length-1].Date)}}</div>
+							</a>
+						</div>
+
+
+						<div class="dropdown top-20" ng-if="vm.ChaptersViewed.length > 0">
+							<button type="button" class="btn btn-outline-dark btn-sm" data-toggle="dropdown">
+								<i class="fas fa-eraser"></i> Clear History
+							</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="#" onclick="DoNothing(event)"
+									ng-click="vm.ClearHistory()">Confirm Clear Read History</a>
+							</div>
+						</div>
+
+						<!-- adsterra ads -->
+						<div style="max-width:600px; margin:0px auto;">
+						</div>
+
+
+						<div class="row top-15" style="background:#EEE; padding-bottom:15px;" ng-if="!vm.Unavailable">
+							<div class="col-lg-5">
+								<div class="top-15">
+									<img class="img-fluid" src="https://i.imgur.com/0uQ1Jan.jpg">
+								</div>
+							</div>
+							<div class="col-lg-7">
+								<div class="top-15 RelatedManga" style="background:white; border:none;">
+									<h3>Related Manga:</h3>
+									<div class="row">
+										<div class="col-sm-3 col-6 top-10"
+											ng-repeat="Series in vm.RelatedSeriesJSON | orderBy:'OrderID':true">
+											<a class="RelatedLink" href="/manga/{{Series.IndexName}}">
+												<div class="ImgHolder">
+													<img class="img-fluid"
+														src="https://temp.compsci88.com/cover/{{Series.IndexName}}.jpg">
+												</div>
+												<div class="NameHolder" ng-bind-html="Series.SeriesName"></div>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="top-20 bottom-5 CommentArea">
+							<h2>
+								<i class="far fa-comments"></i>
+								{{(vm.Comments.length + vm.ReplyCount) | number:0}} Comment{{(vm.Comments.length +
+								vm.ReplyCount) == 1 ? '' : 's'}}
+							</h2>
+
+							<div class="top-15 CommentForm">
+								<textarea class="form-control" placeholder="Write Comment Here..."
+									ng-model="vm.CommentContent"></textarea>
+								<div class="top-10 text-right">
+
+
+									<button class="btn btn-primary" data-toggle="modal" data-target="#AuthModal"
+										ng-click="vm.AuthWarning = ''">
+										Submit
+									</button>
+
+								</div>
+							</div>
+
+							<div id="comments">
+								<div class="top-10 Comment" ng-repeat="Comment in vm.Comments">
+									<div class="CommentTop">
+										<strong>{{Comment.Username}}</strong>
+										&middot; {{vm.FormatDate(Comment.TimeCommented)}}
+
+										<div class="float-right d-inline-block"
+											ng-if="Comment.UserID == '' || vm.IsAdmin">
+											<div class="dropdown d-inline-block">
+												<a class="DeleteComment" href="#" onclick="DoNothing(event)"
+													data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													<i class="fa fa-times"></i>
+												</a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#" onclick="DoNothing(event)"
+														ng-click="vm.DeleteComment(Comment)">Confirm Delete</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="top-10 Content">{{Comment.CommentContent}}</div>
+
+
+									<div class="top-10 ReplyNav">
+										<span>+{{Comment.LikeCount | number:0}}</span>
+										<span>&middot;</span>
+										<a href="#" onclick="DoNothing(event)" data-toggle="modal"
+											data-target="#AuthModal" ng-click="vm.AuthWarning = ''">like</a>
+										<span>&middot;</span>
+										<a href="#" onclick="DoNothing(event)" data-toggle="modal"
+											data-target="#AuthModal" ng-click="vm.AuthWarning = ''">reply</a>
+									</div>
+
+
+									<div class="top-10 ViewMoreReplies"
+										ng-if="Comment.ReplyLimit < Comment.Replies.length"
+										ng-hide="Comment.ShowMoreHide" ng-click="vm.ShowAllReplies(Comment)">
+										View Previous Replies
+									</div>
+									<div class="top-10 ViewMoreReplies" ng-if="Comment.ShowMoreHide">
+										<i class="fa fa-spin fa-spinner"></i> Loading...
+									</div>
+
+									<div class="top-10 Reply"
+										ng-repeat="Reply in Comment.Replies | orderBy:CommentID:true"
+										ng-hide="Comment.ReplyLimit < Comment.Replies.length && Comment.Replies.indexOf(Reply) > Comment.ReplyLimit">
+										<div class="top-10 CommentTop">
+											<strong>{{Reply.Username}}</strong>
+											&middot;
+											{{vm.FormatDate(Reply.TimeCommented)}}
+											<div class="float-right d-inline-block"
+												ng-if="Reply.UserID == '' || vm.IsAdmin">
+												<div class="dropdown d-inline-block">
+													<a class="DeleteComment" href="#" onclick="DoNothing(event)"
+														data-toggle="dropdown" aria-haspopup="true"
+														aria-expanded="false">
+														<i class="fa fa-times"></i>
+													</a>
+													<div class="dropdown-menu dropdown-menu-right">
+														<a class="dropdown-item" href="#" onclick="DoNothing(event)"
+															ng-click="vm.DeleteReply(Comment, Reply)">Confirm Delete</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="top-10 Content">{{Reply.CommentContent}}</div>
+									</div>
+
+									<div class="ReplyMessage" id="Reply{{Comment.CommentID}}">
+										<textarea class="form-control top-10" placeholder="Write Reply..."
+											ng-model="Comment.ReplyMessage" ng-if="Comment.ShowReply"></textarea>
+										<div class="text-right top-10">
+											<button class="btn btn-sm btn-primary" type="button"
+												ng-if="Comment.ShowReply" ng-disabled="Comment.Replying"
+												ng-click="vm.Reply(Comment)">
+												<i class="fa fa-spin fa-spinner" ng-if="Comment.Replying"></i>
+												Submit
+											</button>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<a href="#" class="back-to-top"><span class="fa fa-chevron-up"></span></a>
+	<script>jQuery(document).ready(function () { var a = 400, o = 500; jQuery(window).scroll(function () { jQuery(this).scrollTop() > a ? (jQuery(".back-to-top").fadeIn(o), $(".navbarRegular").hide(), $(".navbarNavTop").show()) : (jQuery(".back-to-top").fadeOut(o), $(".navbarRegular").show(), $(".navbarNavTop").hide()) }), jQuery(".back-to-top").click(function (a) { return a.preventDefault(), jQuery("html, body").animate({ scrollTop: 0 }, o), !1 }) });</script>
+
+	<!-- DoNothing -->
+	<script>function DoNothing(t) { t.preventDefault() } $("body").on("click", "a", function (t) { href = $(this).attr("href"), "#" == href && t.preventDefault() });</script>
+
+	<div id="Footer"><a href="/">Home</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a>
+		<div>Copyright © MangaLife 2023</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+	<!--<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>-->
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-92638121-3', 'auto');
+		ga('send', 'pageview');
+
+		ga('send', 'event', {
+			'eventCategory': "Reading",
+			'eventAction': "Kingdom",
+			'eventLabel': "Manga Info"
+		});
+	</script>
+
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "WebPage",
+			"breadcrumb":{
+				"@type": "BreadcrumbList",
+				"itemListElement": [{
+					"@type": "ListItem",
+					"position": 1,
+					"item": {
+						"@id" : "https://manga4life.com",
+						"name": "MangaLife"
+					}
+				}]
+			},	
+			"mainEntity":{
+				"@type": "CreativeWork",
+				"name": "Kingdom",
+				"about": "Read Kingdom Manga Online For Free. You can read the latest chapters of Kingdom Manga on MangaLife.",
+				"alternateName": ["Kingdom"],
+				"author": ["HARA Yasuhisa"],
+				"genre": ["Action","Drama","Historical","Seinen"],
+				"datePublished": "2014-07-21 21:44:51",
+				"dateModified": "2023-04-15 15:07:53"
+			}
+		}
+	</script>
+
+	<script>
+		function MainFunction($http) {
+			var vm = this;
+
+			vm.AuthType = "Login", vm.Authenticating = !1, vm.AuthWarning = "", vm.ResetSuccess = "", vm.Login = function () { vm.Authenticating = !0, vm.AuthWarning = "", vm.ResetSuccess = "", $http({ method: "POST", url: "/auth/login.php", data: { EmailAddress: vm.AuthEmail, Password: vm.AuthPassword } }).then(function (t) { t.data.success ? location.reload() : "old_db" == t.data.val ? (vm.AuthType = "Register", vm.AuthWarning = "We just transfered our database. Please register again with this Email Address and all of your subscription will transfer automatically.") : vm.AuthWarning = t.data.val, vm.Authenticating = !1 }, function (t) { vm.AuthWarning = "Network Error. Please try again later.", vm.Authenticating = !1 }) }, vm.Register = function () { vm.Authenticating = !0, vm.AuthWarning = "", vm.ResetSuccess = "", grecaptcha.execute("6LcAgscUAAAAAJfDHYib4Z9tm4SSvNF5U6icqDlm", { action: "homepage" }).then(function (t) { vm.Captcha = t, $http({ method: "POST", url: "/auth/register.php", data: { EmailAddress: vm.AuthEmail, Username: vm.AuthUsername, Password: vm.AuthPassword, Captcha: vm.Captcha } }).then(function (t) { t.data.success ? location.reload() : vm.AuthWarning = t.data.val, vm.Authenticating = !1 }, function (t) { vm.AuthWarning = "Network Error. Please try again later.", vm.Authenticating = !1 }) }) }, vm.ResetPassword = function () { vm.Authenticating = !0, vm.AuthWarning = "", vm.ResetSuccess = "", $http({ method: "POST", url: "/auth/reset.php", data: { EmailAddress: vm.AuthEmail } }).then(function (t) { t.data.success ? (vm.AuthEmail = "", vm.AuthUsername = "", vm.AuthPassword = "", vm.ResetSuccess = "If the email address exists, we will send a link to reset your password in a few seconds. If you don't see the email, check other places it might be, like your junk, spam, social, or other folders.") : vm.AuthWarning = t.data.val, vm.Authenticating = !1 }, function (t) { vm.AuthWarning = "Network Error. Please try again later.", vm.Authenticating = !1 }) }, vm.AuthToggle = function () { "Login" == vm.AuthType ? vm.Login() : "Register" == vm.AuthType ? vm.Register() : "Reset" == vm.AuthType && vm.ResetPassword() };
+
+
+			vm.Test = function () {
+				alert("HI");
+			};
+			vm.IndexName = "Kingdom";
+			vm.CaptchaPublicKey = "6LcAgscUAAAAAJfDHYib4Z9tm4SSvNF5U6icqDlm";
+			vm.Chapters = [{ "Chapter": "107540", "Type": "Chapter", "Date": "2023-04-15 15:07:53", "ChapterName": null }, { "Chapter": "107530", "Type": "Chapter", "Date": "2023-04-13 17:13:47", "ChapterName": null }, { "Chapter": "107520", "Type": "Chapter", "Date": "2023-03-28 16:54:39", "ChapterName": null }, { "Chapter": "107510", "Type": "Chapter", "Date": "2023-03-21 14:11:44", "ChapterName": null }, { "Chapter": "107500", "Type": "Chapter", "Date": "2023-03-13 04:36:22", "ChapterName": null }, { "Chapter": "107490", "Type": "Chapter", "Date": "2023-02-28 23:25:12", "ChapterName": null }, { "Chapter": "107480", "Type": "Chapter", "Date": "2023-02-21 02:05:05", "ChapterName": null }, { "Chapter": "107470", "Type": "Chapter", "Date": "2023-02-11 02:00:03", "ChapterName": null }, { "Chapter": "107460", "Type": "Chapter", "Date": "2023-01-30 19:59:15", "ChapterName": null }, { "Chapter": "107450", "Type": "Chapter", "Date": "2023-01-22 15:42:50", "ChapterName": null }, { "Chapter": "107440", "Type": "Chapter", "Date": "2023-01-09 15:29:45", "ChapterName": null }, { "Chapter": "107430", "Type": "Chapter", "Date": "2022-12-24 14:15:56", "ChapterName": null }, { "Chapter": "107420", "Type": "Chapter", "Date": "2022-12-18 15:27:36", "ChapterName": null }, { "Chapter": "107410", "Type": "Chapter", "Date": "2022-12-13 14:36:14", "ChapterName": null }, { "Chapter": "107400", "Type": "Chapter", "Date": "2022-11-29 14:43:05", "ChapterName": null }, { "Chapter": "107390", "Type": "Chapter", "Date": "2022-11-22 06:34:32", "ChapterName": null }, { "Chapter": "107380", "Type": "Chapter", "Date": "2022-11-15 04:34:29", "ChapterName": null }, { "Chapter": "107370", "Type": "Chapter", "Date": "2022-11-07 23:32:47", "ChapterName": null }, { "Chapter": "107360", "Type": "Chapter", "Date": "2022-10-30 00:18:27", "ChapterName": null }, { "Chapter": "107350", "Type": "Chapter", "Date": "2022-10-19 02:40:37", "ChapterName": null }, { "Chapter": "107340", "Type": "Chapter", "Date": "2022-10-11 06:29:53", "ChapterName": null }, { "Chapter": "107330", "Type": "Chapter", "Date": "2022-09-26 23:31:52", "ChapterName": null }, { "Chapter": "107320", "Type": "Chapter", "Date": "2022-09-19 15:19:38", "ChapterName": null }, { "Chapter": "107315", "Type": "Chapter", "Date": "2022-09-15 02:33:18", "ChapterName": null }, { "Chapter": "107310", "Type": "Chapter", "Date": "2022-09-04 00:46:13", "ChapterName": null }, { "Chapter": "107300", "Type": "Chapter", "Date": "2022-08-29 03:33:13", "ChapterName": null }, { "Chapter": "107290", "Type": "Chapter", "Date": "2022-08-07 20:28:08", "ChapterName": null }, { "Chapter": "107280", "Type": "Chapter", "Date": "2022-08-01 20:30:02", "ChapterName": null }, { "Chapter": "107270", "Type": "Chapter", "Date": "2022-07-24 15:31:27", "ChapterName": null }, { "Chapter": "107260", "Type": "Chapter", "Date": "2022-07-20 15:44:27", "ChapterName": null }, { "Chapter": "107250", "Type": "Chapter", "Date": "2022-07-13 14:25:18", "ChapterName": null }, { "Chapter": "107240", "Type": "Chapter", "Date": "2022-07-07 14:48:37", "ChapterName": null }, { "Chapter": "107230", "Type": "Chapter", "Date": "2022-06-26 22:05:26", "ChapterName": null }, { "Chapter": "107220", "Type": "Chapter", "Date": "2022-06-17 00:38:32", "ChapterName": null }, { "Chapter": "107210", "Type": "Chapter", "Date": "2022-06-11 03:56:40", "ChapterName": null }, { "Chapter": "107200", "Type": "Chapter", "Date": "2022-05-28 17:16:30", "ChapterName": null }, { "Chapter": "107190", "Type": "Chapter", "Date": "2022-05-20 00:42:00", "ChapterName": null }, { "Chapter": "107180", "Type": "Chapter", "Date": "2022-05-08 14:44:41", "ChapterName": null }, { "Chapter": "107170", "Type": "Chapter", "Date": "2022-04-28 15:42:35", "ChapterName": null }, { "Chapter": "107160", "Type": "Chapter", "Date": "2022-04-28 15:42:35", "ChapterName": null }, { "Chapter": "107150", "Type": "Chapter", "Date": "2022-04-16 22:48:36", "ChapterName": null }, { "Chapter": "107140", "Type": "Chapter", "Date": "2022-03-31 04:43:02", "ChapterName": null }, { "Chapter": "107130", "Type": "Chapter", "Date": "2022-03-28 04:07:03", "ChapterName": null }, { "Chapter": "107120", "Type": "Chapter", "Date": "2022-03-19 13:50:50", "ChapterName": null }, { "Chapter": "107110", "Type": "Chapter", "Date": "2022-03-13 14:50:53", "ChapterName": null }, { "Chapter": "107100", "Type": "Chapter", "Date": "2022-02-28 14:48:08", "ChapterName": null }, { "Chapter": "107090", "Type": "Chapter", "Date": "2022-02-23 15:03:10", "ChapterName": null }, { "Chapter": "107080", "Type": "Chapter", "Date": "2022-02-09 14:57:33", "ChapterName": null }, { "Chapter": "107070", "Type": "Chapter", "Date": "2022-01-31 14:56:20", "ChapterName": null }, { "Chapter": "107060", "Type": "Chapter", "Date": "2022-01-24 15:00:26", "ChapterName": null }, { "Chapter": "107050", "Type": "Chapter", "Date": "2022-01-10 21:17:38", "ChapterName": null }, { "Chapter": "107040", "Type": "Chapter", "Date": "2021-12-26 23:41:09", "ChapterName": null }, { "Chapter": "107030", "Type": "Chapter", "Date": "2021-12-21 02:28:32", "ChapterName": null }, { "Chapter": "107020", "Type": "Chapter", "Date": "2021-12-08 19:43:09", "ChapterName": null }, { "Chapter": "107010", "Type": "Chapter", "Date": "2021-12-02 02:17:23", "ChapterName": null }, { "Chapter": "107000", "Type": "Chapter", "Date": "2021-11-20 15:06:35", "ChapterName": null }, { "Chapter": "106990", "Type": "Chapter", "Date": "2021-11-16 03:02:53", "ChapterName": null }, { "Chapter": "106980", "Type": "Chapter", "Date": "2021-11-09 15:32:51", "ChapterName": null }, { "Chapter": "106970", "Type": "Chapter", "Date": "2021-11-01 18:28:57", "ChapterName": null }, { "Chapter": "106960", "Type": "Chapter", "Date": "2021-10-27 00:33:43", "ChapterName": null }, { "Chapter": "106950", "Type": "Chapter", "Date": "2021-10-12 16:56:18", "ChapterName": null }, { "Chapter": "106940", "Type": "Chapter", "Date": "2021-10-07 19:39:50", "ChapterName": null }, { "Chapter": "106930", "Type": "Chapter", "Date": "2021-09-27 18:15:03", "ChapterName": null }, { "Chapter": "106920", "Type": "Chapter", "Date": "2021-09-19 03:26:40", "ChapterName": null }, { "Chapter": "106910", "Type": "Chapter", "Date": "2021-09-14 18:25:43", "ChapterName": null }, { "Chapter": "106900", "Type": "Chapter", "Date": "2021-09-07 16:59:00", "ChapterName": null }, { "Chapter": "106890", "Type": "Chapter", "Date": "2021-08-24 21:21:42", "ChapterName": null }, { "Chapter": "106880", "Type": "Chapter", "Date": "2021-08-08 02:28:02", "ChapterName": null }, { "Chapter": "106870", "Type": "Chapter", "Date": "2021-08-01 14:23:44", "ChapterName": null }, { "Chapter": "106860", "Type": "Chapter", "Date": "2021-07-17 02:00:09", "ChapterName": null }, { "Chapter": "106850", "Type": "Chapter", "Date": "2021-07-09 00:02:51", "ChapterName": null }, { "Chapter": "106840", "Type": "Chapter", "Date": "2021-07-03 06:18:53", "ChapterName": null }, { "Chapter": "106830", "Type": "Chapter", "Date": "2021-06-23 02:21:49", "ChapterName": null }, { "Chapter": "106820", "Type": "Chapter", "Date": "2021-06-10 17:05:59", "ChapterName": null }, { "Chapter": "106810", "Type": "Chapter", "Date": "2021-06-03 14:29:43", "ChapterName": null }, { "Chapter": "106800", "Type": "Chapter", "Date": "2021-05-26 14:40:14", "ChapterName": null }, { "Chapter": "106790", "Type": "Chapter", "Date": "2021-05-19 22:00:05", "ChapterName": null }, { "Chapter": "106780", "Type": "Chapter", "Date": "2021-05-03 22:58:49", "ChapterName": null }, { "Chapter": "106770", "Type": "Chapter", "Date": "2021-04-24 15:36:21", "ChapterName": null }, { "Chapter": "106760", "Type": "Chapter", "Date": "2021-04-17 14:48:23", "ChapterName": null }, { "Chapter": "106750", "Type": "Chapter", "Date": "2021-04-03 15:37:07", "ChapterName": null }, { "Chapter": "106740", "Type": "Chapter", "Date": "2021-03-29 01:23:06", "ChapterName": null }, { "Chapter": "106730", "Type": "Chapter", "Date": "2021-03-21 14:47:32", "ChapterName": null }, { "Chapter": "106720", "Type": "Chapter", "Date": "2021-03-14 06:37:03", "ChapterName": null }, { "Chapter": "106710", "Type": "Chapter", "Date": "2021-02-27 14:41:14", "ChapterName": null }, { "Chapter": "106700", "Type": "Chapter", "Date": "2021-02-20 18:34:41", "ChapterName": null }, { "Chapter": "106690", "Type": "Chapter", "Date": "2021-02-13 15:27:52", "ChapterName": null }, { "Chapter": "106680", "Type": "Chapter", "Date": "2021-01-29 17:45:22", "ChapterName": null }, { "Chapter": "106670", "Type": "Chapter", "Date": "2021-01-24 02:44:14", "ChapterName": null }, { "Chapter": "106660", "Type": "Chapter", "Date": "2021-01-08 05:17:27", "ChapterName": null }, { "Chapter": "106650", "Type": "Chapter", "Date": "2020-12-26 14:33:45", "ChapterName": null }, { "Chapter": "106640", "Type": "Chapter", "Date": "2020-12-19 15:36:03", "ChapterName": null }, { "Chapter": "106630", "Type": "Chapter", "Date": "2020-12-04 23:15:02", "ChapterName": null }, { "Chapter": "106620", "Type": "Chapter", "Date": "2020-11-29 15:04:16", "ChapterName": null }, { "Chapter": "106610", "Type": "Chapter", "Date": "2020-11-21 15:44:58", "ChapterName": null }, { "Chapter": "106600", "Type": "Chapter", "Date": "2020-11-14 04:57:08", "ChapterName": null }, { "Chapter": "106590", "Type": "Chapter", "Date": "2020-10-30 15:03:20", "ChapterName": null }, { "Chapter": "106580", "Type": "Chapter", "Date": "2020-10-23 16:59:59", "ChapterName": null }, { "Chapter": "106570", "Type": "Chapter", "Date": "2020-10-16 15:01:33", "ChapterName": null }, { "Chapter": "106560", "Type": "Chapter", "Date": "2020-10-08 16:31:34", "ChapterName": null }, { "Chapter": "106550", "Type": "Chapter", "Date": "2020-10-01 15:38:11", "ChapterName": null }, { "Chapter": "106540", "Type": "Chapter", "Date": "2020-09-18 05:06:14", "ChapterName": null }, { "Chapter": "106530", "Type": "Chapter", "Date": "2020-09-11 00:10:46", "ChapterName": null }, { "Chapter": "106520", "Type": "Chapter", "Date": "2020-09-04 03:22:30", "ChapterName": null }, { "Chapter": "106510", "Type": "Chapter", "Date": "2020-08-27 19:15:39", "ChapterName": null }, { "Chapter": "106500", "Type": "Chapter", "Date": "2020-08-20 19:49:00", "ChapterName": null }, { "Chapter": "106490", "Type": "Chapter", "Date": "2020-08-06 16:44:20", "ChapterName": null }, { "Chapter": "106480", "Type": "Chapter", "Date": "2020-07-16 08:29:22", "ChapterName": null }, { "Chapter": "106470", "Type": "Chapter", "Date": "2020-07-09 20:15:15", "ChapterName": null }, { "Chapter": "106460", "Type": "Chapter", "Date": "2020-07-02 20:25:59", "ChapterName": null }, { "Chapter": "106450", "Type": "Chapter", "Date": "2020-06-25 16:34:25", "ChapterName": null }, { "Chapter": "106440", "Type": "Chapter", "Date": "2020-06-18 14:49:45", "ChapterName": null }, { "Chapter": "106430", "Type": "Chapter", "Date": "2020-06-10 16:46:38", "ChapterName": null }, { "Chapter": "106420", "Type": "Chapter", "Date": "2020-06-03 21:18:00", "ChapterName": null }, { "Chapter": "106410", "Type": "Chapter", "Date": "2020-04-30 16:56:12", "ChapterName": "" }, { "Chapter": "106400", "Type": "Chapter", "Date": "2020-04-23 14:51:10", "ChapterName": "" }, { "Chapter": "106390", "Type": "Chapter", "Date": "2020-04-16 15:50:16", "ChapterName": "" }, { "Chapter": "106380", "Type": "Chapter", "Date": "2020-04-09 15:53:41", "ChapterName": "" }, { "Chapter": "106370", "Type": "Chapter", "Date": "2020-04-02 15:45:33", "ChapterName": "" }, { "Chapter": "106360", "Type": "Chapter", "Date": "2020-03-26 22:26:34", "ChapterName": "" }, { "Chapter": "106350", "Type": "Chapter", "Date": "2020-03-20 02:09:12", "ChapterName": "" }, { "Chapter": "106340", "Type": "Chapter", "Date": "2020-03-11 07:14:32", "ChapterName": "" }, { "Chapter": "106330", "Type": "Chapter", "Date": "2020-02-28 00:16:51", "ChapterName": "" }, { "Chapter": "106320", "Type": "Chapter", "Date": "2020-02-20 19:59:49", "ChapterName": "" }, { "Chapter": "106310", "Type": "Chapter", "Date": "2020-02-15 15:43:06", "ChapterName": "" }, { "Chapter": "106300", "Type": "Chapter", "Date": "2020-02-06 19:59:47", "ChapterName": "" }, { "Chapter": "106290", "Type": "Chapter", "Date": "2020-01-30 08:22:08", "ChapterName": "" }, { "Chapter": "106280", "Type": "Chapter", "Date": "2020-01-09 18:46:24", "ChapterName": "" }, { "Chapter": "106270", "Type": "Chapter", "Date": "2019-12-26 16:05:50", "ChapterName": "" }, { "Chapter": "106260", "Type": "Chapter", "Date": "2019-12-19 19:17:25", "ChapterName": "" }, { "Chapter": "106250", "Type": "Chapter", "Date": "2019-12-12 23:36:21", "ChapterName": "" }, { "Chapter": "106240", "Type": "Chapter", "Date": "2019-12-04 16:13:52", "ChapterName": "" }, { "Chapter": "106230", "Type": "Chapter", "Date": "2019-11-27 16:57:54", "ChapterName": "" }, { "Chapter": "106220", "Type": "Chapter", "Date": "2019-11-21 15:16:42", "ChapterName": "" }, { "Chapter": "106210", "Type": "Chapter", "Date": "2019-11-14 17:10:29", "ChapterName": "" }, { "Chapter": "106200", "Type": "Chapter", "Date": "2019-10-30 17:10:04", "ChapterName": "" }, { "Chapter": "106190", "Type": "Chapter", "Date": "2019-10-24 20:09:21", "ChapterName": "" }, { "Chapter": "106180", "Type": "Chapter", "Date": "2019-10-17 19:25:37", "ChapterName": "" }, { "Chapter": "106170", "Type": "Chapter", "Date": "2019-10-09 22:11:32", "ChapterName": "" }, { "Chapter": "106160", "Type": "Chapter", "Date": "2019-10-03 20:47:31", "ChapterName": "" }, { "Chapter": "106150", "Type": "Chapter", "Date": "2019-09-24 16:57:25", "ChapterName": "" }, { "Chapter": "106140", "Type": "Chapter", "Date": "2019-09-18 15:54:54", "ChapterName": "" }, { "Chapter": "106130", "Type": "Chapter", "Date": "2019-09-04 20:54:11", "ChapterName": "" }, { "Chapter": "106120", "Type": "Chapter", "Date": "2019-08-29 16:17:05", "ChapterName": "" }, { "Chapter": "106110", "Type": "Chapter", "Date": "2019-08-19 16:45:25", "ChapterName": "" }, { "Chapter": "106100", "Type": "Chapter", "Date": "2019-08-07 07:15:48", "ChapterName": "" }, { "Chapter": "106090", "Type": "Chapter", "Date": "2019-08-02 00:51:48", "ChapterName": "" }, { "Chapter": "106080", "Type": "Chapter", "Date": "2019-07-25 16:24:56", "ChapterName": "" }, { "Chapter": "106070", "Type": "Chapter", "Date": "2019-07-11 15:26:24", "ChapterName": "" }, { "Chapter": "106060", "Type": "Chapter", "Date": "2019-07-04 19:20:12", "ChapterName": "" }, { "Chapter": "106050", "Type": "Chapter", "Date": "2019-06-27 14:15:51", "ChapterName": "" }, { "Chapter": "106040", "Type": "Chapter", "Date": "2019-06-20 15:06:27", "ChapterName": "" }, { "Chapter": "106030", "Type": "Chapter", "Date": "2019-06-13 18:40:50", "ChapterName": "" }, { "Chapter": "106020", "Type": "Chapter", "Date": "2019-06-06 23:35:38", "ChapterName": "" }, { "Chapter": "106010", "Type": "Chapter", "Date": "2019-05-30 14:45:40", "ChapterName": "" }, { "Chapter": "106000", "Type": "Chapter", "Date": "2019-05-15 04:06:14", "ChapterName": "" }, { "Chapter": "105990", "Type": "Chapter", "Date": "2019-05-06 16:15:12", "ChapterName": "" }, { "Chapter": "105980", "Type": "Chapter", "Date": "2019-04-23 23:52:08", "ChapterName": "" }, { "Chapter": "105970", "Type": "Chapter", "Date": "2019-04-18 17:28:47", "ChapterName": "" }, { "Chapter": "105960", "Type": "Chapter", "Date": "2019-04-10 18:01:43", "ChapterName": "" }, { "Chapter": "105950", "Type": "Chapter", "Date": "2019-04-02 19:03:58", "ChapterName": "" }, { "Chapter": "105940", "Type": "Chapter", "Date": "2019-03-19 21:28:56", "ChapterName": "" }, { "Chapter": "105930", "Type": "Chapter", "Date": "2019-03-13 15:58:31", "ChapterName": "" }, { "Chapter": "105920", "Type": "Chapter", "Date": "2019-03-06 16:34:33", "ChapterName": "" }, { "Chapter": "105910", "Type": "Chapter", "Date": "2019-02-28 16:15:24", "ChapterName": "" }, { "Chapter": "105900", "Type": "Chapter", "Date": "2019-02-21 16:33:51", "ChapterName": "" }, { "Chapter": "105890", "Type": "Chapter", "Date": "2019-02-14 17:15:08", "ChapterName": "" }, { "Chapter": "105880", "Type": "Chapter", "Date": "2019-02-07 16:27:22", "ChapterName": "" }, { "Chapter": "105870", "Type": "Chapter", "Date": "2019-01-24 17:51:47", "ChapterName": "" }, { "Chapter": "105860", "Type": "Chapter", "Date": "2019-01-11 01:52:31", "ChapterName": "" }, { "Chapter": "105850", "Type": "Chapter", "Date": "2018-12-26 15:17:09", "ChapterName": "" }, { "Chapter": "105840", "Type": "Chapter", "Date": "2018-12-19 16:59:29", "ChapterName": "" }, { "Chapter": "105830", "Type": "Chapter", "Date": "2018-12-12 16:23:42", "ChapterName": "" }, { "Chapter": "105820", "Type": "Chapter", "Date": "2018-12-06 05:15:32", "ChapterName": "" }, { "Chapter": "105810", "Type": "Chapter", "Date": "2018-11-22 05:12:41", "ChapterName": "" }, { "Chapter": "105800", "Type": "Chapter", "Date": "2018-11-14 19:46:44", "ChapterName": "" }, { "Chapter": "105790", "Type": "Chapter", "Date": "2018-11-08 08:47:01", "ChapterName": "" }, { "Chapter": "105780", "Type": "Chapter", "Date": "2018-11-01 16:48:26", "ChapterName": "" }, { "Chapter": "105770", "Type": "Chapter", "Date": "2018-10-25 02:10:52", "ChapterName": "" }, { "Chapter": "105760", "Type": "Chapter", "Date": "2018-10-18 22:20:53", "ChapterName": "" }, { "Chapter": "105750", "Type": "Chapter", "Date": "2018-10-10 21:12:40", "ChapterName": "" }, { "Chapter": "105740", "Type": "Chapter", "Date": "2018-09-24 07:33:12", "ChapterName": "" }, { "Chapter": "105730", "Type": "Chapter", "Date": "2018-09-19 16:30:17", "ChapterName": "" }, { "Chapter": "105720", "Type": "Chapter", "Date": "2018-09-12 17:37:20", "ChapterName": "" }, { "Chapter": "105710", "Type": "Chapter", "Date": "2018-09-05 16:25:59", "ChapterName": "" }, { "Chapter": "105700", "Type": "Chapter", "Date": "2018-08-29 17:29:19", "ChapterName": "" }, { "Chapter": "105690", "Type": "Chapter", "Date": "2018-08-22 16:49:17", "ChapterName": "" }, { "Chapter": "105680", "Type": "Chapter", "Date": "2018-08-08 07:56:40", "ChapterName": "" }, { "Chapter": "105670", "Type": "Chapter", "Date": "2018-07-24 18:29:17", "ChapterName": "" }, { "Chapter": "105660", "Type": "Chapter", "Date": "2018-07-18 23:32:49", "ChapterName": "" }, { "Chapter": "105650", "Type": "Chapter", "Date": "2018-07-10 18:53:38", "ChapterName": "" }, { "Chapter": "105640", "Type": "Chapter", "Date": "2018-07-05 00:39:47", "ChapterName": "" }, { "Chapter": "105630", "Type": "Chapter", "Date": "2018-06-28 17:20:34", "ChapterName": "" }, { "Chapter": "105620", "Type": "Chapter", "Date": "2018-06-20 16:45:21", "ChapterName": "" }, { "Chapter": "105610", "Type": "Chapter", "Date": "2018-06-13 16:21:32", "ChapterName": "" }, { "Chapter": "105600", "Type": "Chapter", "Date": "2018-05-29 19:42:08", "ChapterName": "" }, { "Chapter": "105590", "Type": "Chapter", "Date": "2018-05-22 18:39:26", "ChapterName": "" }, { "Chapter": "105580", "Type": "Chapter", "Date": "2018-05-15 17:02:03", "ChapterName": "" }, { "Chapter": "105570", "Type": "Chapter", "Date": "2018-05-09 16:46:16", "ChapterName": "" }, { "Chapter": "105560", "Type": "Chapter", "Date": "2018-04-24 17:03:04", "ChapterName": "" }, { "Chapter": "105550", "Type": "Chapter", "Date": "2018-04-18 23:31:13", "ChapterName": "" }, { "Chapter": "105540", "Type": "Chapter", "Date": "2018-04-12 03:01:55", "ChapterName": "" }, { "Chapter": "105530", "Type": "Chapter", "Date": "2018-04-03 17:44:19", "ChapterName": "" }, { "Chapter": "105520", "Type": "Chapter", "Date": "2018-03-19 20:38:15", "ChapterName": "" }, { "Chapter": "105510", "Type": "Chapter", "Date": "2018-03-13 17:52:30", "ChapterName": "" }, { "Chapter": "105500", "Type": "Chapter", "Date": "2018-03-06 17:16:19", "ChapterName": "" }, { "Chapter": "105490", "Type": "Chapter", "Date": "2018-02-27 16:28:08", "ChapterName": "" }, { "Chapter": "105480", "Type": "Chapter", "Date": "2018-02-21 05:51:49", "ChapterName": "" }, { "Chapter": "105470", "Type": "Chapter", "Date": "2019-09-25 20:55:58", "ChapterName": "" }, { "Chapter": "105460", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105450", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105440", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105430", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105420", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105410", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105400", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105390", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105380", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105370", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105360", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105350", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105340", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105330", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105320", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105310", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105300", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105290", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105280", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105270", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105260", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105250", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105240", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105230", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105220", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105210", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105200", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105190", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105180", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105170", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105160", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105150", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105140", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105130", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105120", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105110", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105100", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105090", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105080", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105070", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105060", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105050", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105040", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105030", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105020", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105010", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "105000", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "104990", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "104980", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "104970", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "104960", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "104950", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "104940", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "104930", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "104920", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "104910", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "104900", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "104890", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "104880", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "104870", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "104860", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "104850", "Type": "Chapter", "Date": "2019-09-25 20:55:57", "ChapterName": "" }, { "Chapter": "104840", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104830", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104820", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104810", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104800", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104790", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104780", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104770", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104760", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104750", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104740", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104730", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104720", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104710", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104700", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104690", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104680", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104670", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104660", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104650", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104640", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104630", "Type": "Chapter", "Date": "2019-09-25 20:55:56", "ChapterName": "" }, { "Chapter": "104620", "Type": "Chapter", "Date": "2016-02-05 19:00:24", "ChapterName": "" }, { "Chapter": "104610", "Type": "Chapter", "Date": "2016-01-31 05:15:18", "ChapterName": "" }, { "Chapter": "104600", "Type": "Chapter", "Date": "2016-01-23 18:09:13", "ChapterName": "" }, { "Chapter": "104590", "Type": "Chapter", "Date": "2016-01-09 19:23:06", "ChapterName": "" }, { "Chapter": "104580", "Type": "Chapter", "Date": "2015-12-25 19:00:28", "ChapterName": "" }, { "Chapter": "104570", "Type": "Chapter", "Date": "2015-12-22 16:43:15", "ChapterName": "" }, { "Chapter": "104560", "Type": "Chapter", "Date": "2015-12-12 09:06:29", "ChapterName": "" }, { "Chapter": "104550", "Type": "Chapter", "Date": "2015-11-28 03:12:50", "ChapterName": "" }, { "Chapter": "104540", "Type": "Chapter", "Date": "2015-11-21 08:24:53", "ChapterName": "" }, { "Chapter": "104530", "Type": "Chapter", "Date": "2015-11-08 19:46:47", "ChapterName": "" }, { "Chapter": "104520", "Type": "Chapter", "Date": "2015-11-01 19:50:25", "ChapterName": "" }, { "Chapter": "104510", "Type": "Chapter", "Date": "2015-10-30 18:26:56", "ChapterName": "" }, { "Chapter": "104500", "Type": "Chapter", "Date": "2015-10-23 16:26:55", "ChapterName": "" }, { "Chapter": "104490", "Type": "Chapter", "Date": "2015-10-16 18:30:15", "ChapterName": "" }, { "Chapter": "104480", "Type": "Chapter", "Date": "2015-10-11 07:08:49", "ChapterName": "" }, { "Chapter": "104470", "Type": "Chapter", "Date": "2015-09-23 16:51:31", "ChapterName": "" }, { "Chapter": "104460", "Type": "Chapter", "Date": "2015-09-20 20:42:12", "ChapterName": "" }, { "Chapter": "104450", "Type": "Chapter", "Date": "2015-09-12 17:27:51", "ChapterName": "" }, { "Chapter": "104440", "Type": "Chapter", "Date": "2015-09-01 16:35:09", "ChapterName": "" }, { "Chapter": "104430", "Type": "Chapter", "Date": "2015-08-31 17:18:42", "ChapterName": "" }, { "Chapter": "104420", "Type": "Chapter", "Date": "2015-08-22 16:18:24", "ChapterName": "" }, { "Chapter": "104410", "Type": "Chapter", "Date": "2015-08-05 17:50:13", "ChapterName": "" }, { "Chapter": "104400", "Type": "Chapter", "Date": "2015-07-29 17:21:50", "ChapterName": "" }, { "Chapter": "104390", "Type": "Chapter", "Date": "2015-07-20 17:24:52", "ChapterName": "" }, { "Chapter": "104380", "Type": "Chapter", "Date": "2015-07-09 21:58:18", "ChapterName": "" }, { "Chapter": "104370", "Type": "Chapter", "Date": "2015-07-04 16:43:02", "ChapterName": "" }, { "Chapter": "104360", "Type": "Chapter", "Date": "2015-06-24 16:32:05", "ChapterName": "" }, { "Chapter": "104350", "Type": "Chapter", "Date": "2015-06-19 16:35:59", "ChapterName": "" }, { "Chapter": "104340", "Type": "Chapter", "Date": "2015-06-10 17:39:17", "ChapterName": "" }, { "Chapter": "104330", "Type": "Chapter", "Date": "2015-06-06 17:57:34", "ChapterName": "" }, { "Chapter": "104320", "Type": "Chapter", "Date": "2015-05-19 16:12:15", "ChapterName": "" }, { "Chapter": "104310", "Type": "Chapter", "Date": "2015-05-11 16:42:23", "ChapterName": "" }, { "Chapter": "104300", "Type": "Chapter", "Date": "2015-05-05 16:16:23", "ChapterName": "" }, { "Chapter": "104290", "Type": "Chapter", "Date": "2015-04-19 18:51:59", "ChapterName": "" }, { "Chapter": "104280", "Type": "Chapter", "Date": "2015-04-13 23:54:53", "ChapterName": "" }, { "Chapter": "104270", "Type": "Chapter", "Date": "2015-04-06 22:12:37", "ChapterName": "" }, { "Chapter": "104260", "Type": "Chapter", "Date": "2015-03-29 20:50:23", "ChapterName": "" }, { "Chapter": "104250", "Type": "Chapter", "Date": "2015-03-24 16:21:05", "ChapterName": "" }, { "Chapter": "104240", "Type": "Chapter", "Date": "2015-03-16 15:23:09", "ChapterName": "" }, { "Chapter": "104230", "Type": "Chapter", "Date": "2015-03-10 17:50:18", "ChapterName": "" }, { "Chapter": "104220", "Type": "Chapter", "Date": "2015-03-03 16:00:18", "ChapterName": "" }, { "Chapter": "104210", "Type": "Chapter", "Date": "2015-02-21 17:02:50", "ChapterName": "" }, { "Chapter": "104200", "Type": "Chapter", "Date": "2015-02-14 16:31:35", "ChapterName": "" }, { "Chapter": "104190", "Type": "Chapter", "Date": "2015-02-07 16:09:59", "ChapterName": "The Man who Stands" }, { "Chapter": "104180", "Type": "Chapter", "Date": "2015-01-31 18:01:37", "ChapterName": "" }, { "Chapter": "104170", "Type": "Chapter", "Date": "2015-01-24 18:15:07", "ChapterName": "" }, { "Chapter": "104160", "Type": "Chapter", "Date": "2015-01-10 16:46:25", "ChapterName": "" }, { "Chapter": "104150", "Type": "Chapter", "Date": "2014-12-28 14:47:46", "ChapterName": "" }, { "Chapter": "104140", "Type": "Chapter", "Date": "2014-12-20 18:42:11", "ChapterName": "" }, { "Chapter": "104130", "Type": "Chapter", "Date": "2014-12-13 17:01:40", "ChapterName": "" }, { "Chapter": "104120", "Type": "Chapter", "Date": "2014-12-06 15:53:11", "ChapterName": "" }, { "Chapter": "104110", "Type": "Chapter", "Date": "2014-11-23 13:09:33", "ChapterName": "Gathered at You" }, { "Chapter": "104100", "Type": "Chapter", "Date": "2014-11-15 16:31:05", "ChapterName": "" }, { "Chapter": "104090", "Type": "Chapter", "Date": "2014-11-03 15:46:12", "ChapterName": "" }, { "Chapter": "104080", "Type": "Chapter", "Date": "2014-10-28 16:14:50", "ChapterName": "" }, { "Chapter": "104070", "Type": "Chapter", "Date": "2014-10-21 17:09:39", "ChapterName": "" }, { "Chapter": "104060", "Type": "Chapter", "Date": "2014-10-12 16:17:33", "ChapterName": "" }, { "Chapter": "104050", "Type": "Chapter", "Date": "2014-10-07 15:26:21", "ChapterName": "" }, { "Chapter": "104040", "Type": "Chapter", "Date": "2014-09-29 16:43:26", "ChapterName": "" }, { "Chapter": "104030", "Type": "Chapter", "Date": "2014-09-22 09:19:47", "ChapterName": "" }, { "Chapter": "104020", "Type": "Chapter", "Date": "2014-09-16 16:19:02", "ChapterName": "" }, { "Chapter": "104010", "Type": "Chapter", "Date": "2014-09-04 08:03:57", "ChapterName": "" }, { "Chapter": "104000", "Type": "Chapter", "Date": "2014-08-25 18:06:31", "ChapterName": "" }, { "Chapter": "103990", "Type": "Chapter", "Date": "2014-08-18 16:33:33", "ChapterName": "" }, { "Chapter": "103980", "Type": "Chapter", "Date": "2014-08-04 10:25:22", "ChapterName": "" }, { "Chapter": "103970", "Type": "Chapter", "Date": "2014-07-28 16:26:10", "ChapterName": "" }, { "Chapter": "103960", "Type": "Chapter", "Date": "2014-07-21 21:45:23", "ChapterName": "" }, { "Chapter": "103950", "Type": "Chapter", "Date": "2014-07-21 21:45:23", "ChapterName": "" }, { "Chapter": "103940", "Type": "Chapter", "Date": "2014-07-21 21:45:23", "ChapterName": "" }, { "Chapter": "103930", "Type": "Chapter", "Date": "2014-07-21 21:45:23", "ChapterName": "" }, { "Chapter": "103920", "Type": "Chapter", "Date": "2014-07-21 21:45:23", "ChapterName": "" }, { "Chapter": "103910", "Type": "Chapter", "Date": "2014-07-21 21:45:23", "ChapterName": "" }, { "Chapter": "103900", "Type": "Chapter", "Date": "2014-07-21 21:45:23", "ChapterName": "" }, { "Chapter": "103890", "Type": "Chapter", "Date": "2014-07-21 21:45:23", "ChapterName": "" }, { "Chapter": "103880", "Type": "Chapter", "Date": "2014-07-21 21:45:23", "ChapterName": "" }, { "Chapter": "103870", "Type": "Chapter", "Date": "2014-07-21 21:45:23", "ChapterName": "" }, { "Chapter": "103860", "Type": "Chapter", "Date": "2014-07-21 21:45:23", "ChapterName": "" }, { "Chapter": "103850", "Type": "Chapter", "Date": "2014-07-21 21:45:23", "ChapterName": "" }, { "Chapter": "103840", "Type": "Chapter", "Date": "2014-07-21 21:45:23", "ChapterName": "" }, { "Chapter": "103830", "Type": "Chapter", "Date": "2014-07-21 21:45:23", "ChapterName": "" }, { "Chapter": "103820", "Type": "Chapter", "Date": "2014-07-21 21:45:23", "ChapterName": "" }, { "Chapter": "103810", "Type": "Chapter", "Date": "2014-07-21 21:45:23", "ChapterName": "" }, { "Chapter": "103800", "Type": "Chapter", "Date": "2014-07-21 21:45:23", "ChapterName": "" }, { "Chapter": "103790", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103780", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103770", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103760", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103750", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103740", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103730", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103720", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103710", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103700", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103690", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103680", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103670", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103660", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103650", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103640", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103630", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103620", "Type": "Chapter", "Date": "2014-07-21 21:45:22", "ChapterName": "" }, { "Chapter": "103610", "Type": "Chapter", "Date": "2014-07-21 21:45:21", "ChapterName": "" }, { "Chapter": "103605", "Type": "Chapter", "Date": "2014-07-21 21:45:49", "ChapterName": "" }, { "Chapter": "103600", "Type": "Chapter", "Date": "2014-07-21 21:45:21", "ChapterName": "" }, { "Chapter": "103590", "Type": "Chapter", "Date": "2014-07-21 21:45:21", "ChapterName": "" }, { "Chapter": "103580", "Type": "Chapter", "Date": "2014-07-21 21:45:21", "ChapterName": "" }, { "Chapter": "103570", "Type": "Chapter", "Date": "2014-07-21 21:45:21", "ChapterName": "" }, { "Chapter": "103560", "Type": "Chapter", "Date": "2014-07-21 21:45:21", "ChapterName": "" }, { "Chapter": "103550", "Type": "Chapter", "Date": "2014-07-21 21:45:21", "ChapterName": "" }, { "Chapter": "103540", "Type": "Chapter", "Date": "2014-07-21 21:45:21", "ChapterName": "" }, { "Chapter": "103530", "Type": "Chapter", "Date": "2014-07-21 21:45:21", "ChapterName": "" }, { "Chapter": "103520", "Type": "Chapter", "Date": "2014-07-21 21:45:21", "ChapterName": "" }, { "Chapter": "103510", "Type": "Chapter", "Date": "2014-07-21 21:45:21", "ChapterName": "" }, { "Chapter": "103500", "Type": "Chapter", "Date": "2014-07-21 21:45:21", "ChapterName": "" }, { "Chapter": "103490", "Type": "Chapter", "Date": "2014-07-21 21:45:21", "ChapterName": "" }, { "Chapter": "103480", "Type": "Chapter", "Date": "2014-07-21 21:45:21", "ChapterName": "" }, { "Chapter": "103470", "Type": "Chapter", "Date": "2014-07-21 21:45:21", "ChapterName": "" }, { "Chapter": "103460", "Type": "Chapter", "Date": "2014-07-21 21:45:21", "ChapterName": "" }, { "Chapter": "103450", "Type": "Chapter", "Date": "2014-07-21 21:45:21", "ChapterName": "" }, { "Chapter": "103440", "Type": "Chapter", "Date": "2014-07-21 21:45:20", "ChapterName": "" }, { "Chapter": "103430", "Type": "Chapter", "Date": "2014-07-21 21:45:20", "ChapterName": "" }, { "Chapter": "103420", "Type": "Chapter", "Date": "2014-07-21 21:45:20", "ChapterName": "" }, { "Chapter": "103410", "Type": "Chapter", "Date": "2014-07-21 21:45:20", "ChapterName": "" }, { "Chapter": "103400", "Type": "Chapter", "Date": "2014-07-21 21:45:20", "ChapterName": "" }, { "Chapter": "103390", "Type": "Chapter", "Date": "2014-07-21 21:45:20", "ChapterName": "" }, { "Chapter": "103380", "Type": "Chapter", "Date": "2014-07-21 21:45:20", "ChapterName": "" }, { "Chapter": "103370", "Type": "Chapter", "Date": "2014-07-21 21:45:20", "ChapterName": "" }, { "Chapter": "103360", "Type": "Chapter", "Date": "2014-07-21 21:45:20", "ChapterName": "" }, { "Chapter": "103350", "Type": "Chapter", "Date": "2014-07-21 21:45:20", "ChapterName": "" }, { "Chapter": "103340", "Type": "Chapter", "Date": "2014-07-21 21:45:20", "ChapterName": "" }, { "Chapter": "103330", "Type": "Chapter", "Date": "2014-07-21 21:45:19", "ChapterName": "" }, { "Chapter": "103320", "Type": "Chapter", "Date": "2014-07-21 21:45:19", "ChapterName": "" }, { "Chapter": "103310", "Type": "Chapter", "Date": "2014-07-21 21:45:19", "ChapterName": "" }, { "Chapter": "103300", "Type": "Chapter", "Date": "2014-07-21 21:45:19", "ChapterName": "" }, { "Chapter": "103290", "Type": "Chapter", "Date": "2014-07-21 21:45:19", "ChapterName": "" }, { "Chapter": "103280", "Type": "Chapter", "Date": "2014-07-21 21:45:19", "ChapterName": "" }, { "Chapter": "103270", "Type": "Chapter", "Date": "2014-07-21 21:45:19", "ChapterName": "" }, { "Chapter": "103260", "Type": "Chapter", "Date": "2014-07-21 21:45:19", "ChapterName": "" }, { "Chapter": "103250", "Type": "Chapter", "Date": "2014-07-21 21:45:19", "ChapterName": "" }, { "Chapter": "103240", "Type": "Chapter", "Date": "2014-07-21 21:45:19", "ChapterName": "" }, { "Chapter": "103230", "Type": "Chapter", "Date": "2014-07-21 21:45:19", "ChapterName": "" }, { "Chapter": "103220", "Type": "Chapter", "Date": "2014-07-21 21:45:19", "ChapterName": "" }, { "Chapter": "103210", "Type": "Chapter", "Date": "2014-07-21 21:45:19", "ChapterName": "" }, { "Chapter": "103200", "Type": "Chapter", "Date": "2014-07-21 21:45:18", "ChapterName": "" }, { "Chapter": "103190", "Type": "Chapter", "Date": "2014-07-21 21:45:18", "ChapterName": "" }, { "Chapter": "103180", "Type": "Chapter", "Date": "2014-07-21 21:45:18", "ChapterName": "" }, { "Chapter": "103170", "Type": "Chapter", "Date": "2014-07-21 21:45:18", "ChapterName": "" }, { "Chapter": "103160", "Type": "Chapter", "Date": "2014-07-21 21:45:18", "ChapterName": "" }, { "Chapter": "103150", "Type": "Chapter", "Date": "2014-07-21 21:45:18", "ChapterName": "" }, { "Chapter": "103140", "Type": "Chapter", "Date": "2014-07-21 21:45:18", "ChapterName": "" }, { "Chapter": "103130", "Type": "Chapter", "Date": "2014-07-21 21:45:18", "ChapterName": "" }, { "Chapter": "103120", "Type": "Chapter", "Date": "2014-07-21 21:45:18", "ChapterName": "" }, { "Chapter": "103110", "Type": "Chapter", "Date": "2014-07-21 21:45:18", "ChapterName": "" }, { "Chapter": "103100", "Type": "Chapter", "Date": "2014-07-21 21:45:18", "ChapterName": "" }, { "Chapter": "103090", "Type": "Chapter", "Date": "2014-07-21 21:45:18", "ChapterName": "" }, { "Chapter": "103080", "Type": "Chapter", "Date": "2014-07-21 21:45:18", "ChapterName": "" }, { "Chapter": "103070", "Type": "Chapter", "Date": "2014-07-21 21:45:18", "ChapterName": "" }, { "Chapter": "103060", "Type": "Chapter", "Date": "2014-07-21 21:45:18", "ChapterName": "" }, { "Chapter": "103050", "Type": "Chapter", "Date": "2014-07-21 21:45:18", "ChapterName": "" }, { "Chapter": "103040", "Type": "Chapter", "Date": "2014-07-21 21:45:18", "ChapterName": "" }, { "Chapter": "103030", "Type": "Chapter", "Date": "2014-07-21 21:45:17", "ChapterName": "" }, { "Chapter": "103020", "Type": "Chapter", "Date": "2014-07-21 21:45:17", "ChapterName": "" }, { "Chapter": "103010", "Type": "Chapter", "Date": "2014-07-21 21:45:17", "ChapterName": "" }, { "Chapter": "103000", "Type": "Chapter", "Date": "2014-07-21 21:45:17", "ChapterName": "" }, { "Chapter": "102990", "Type": "Chapter", "Date": "2014-07-21 21:45:17", "ChapterName": "" }, { "Chapter": "102980", "Type": "Chapter", "Date": "2014-07-21 21:45:17", "ChapterName": "" }, { "Chapter": "102970", "Type": "Chapter", "Date": "2014-07-21 21:45:17", "ChapterName": "" }, { "Chapter": "102960", "Type": "Chapter", "Date": "2014-07-21 21:45:17", "ChapterName": "" }, { "Chapter": "102950", "Type": "Chapter", "Date": "2014-07-21 21:45:17", "ChapterName": "" }, { "Chapter": "102940", "Type": "Chapter", "Date": "2014-07-21 21:45:17", "ChapterName": "" }, { "Chapter": "102930", "Type": "Chapter", "Date": "2014-07-21 21:45:17", "ChapterName": "" }, { "Chapter": "102920", "Type": "Chapter", "Date": "2014-07-21 21:45:17", "ChapterName": "" }, { "Chapter": "102910", "Type": "Chapter", "Date": "2014-07-21 21:45:17", "ChapterName": "" }, { "Chapter": "102900", "Type": "Chapter", "Date": "2014-07-21 21:45:17", "ChapterName": "" }, { "Chapter": "102890", "Type": "Chapter", "Date": "2014-07-21 21:45:17", "ChapterName": "" }, { "Chapter": "102880", "Type": "Chapter", "Date": "2014-07-21 21:45:17", "ChapterName": "" }, { "Chapter": "102870", "Type": "Chapter", "Date": "2014-07-21 21:45:16", "ChapterName": "" }, { "Chapter": "102860", "Type": "Chapter", "Date": "2014-07-21 21:45:16", "ChapterName": "" }, { "Chapter": "102850", "Type": "Chapter", "Date": "2014-07-21 21:45:16", "ChapterName": "" }, { "Chapter": "102840", "Type": "Chapter", "Date": "2014-07-21 21:45:16", "ChapterName": "" }, { "Chapter": "102830", "Type": "Chapter", "Date": "2014-07-21 21:45:16", "ChapterName": "" }, { "Chapter": "102820", "Type": "Chapter", "Date": "2014-07-21 21:45:16", "ChapterName": "" }, { "Chapter": "102810", "Type": "Chapter", "Date": "2014-07-21 21:45:16", "ChapterName": "" }, { "Chapter": "102800", "Type": "Chapter", "Date": "2014-07-21 21:45:16", "ChapterName": "" }, { "Chapter": "102790", "Type": "Chapter", "Date": "2014-07-21 21:45:16", "ChapterName": "" }, { "Chapter": "102780", "Type": "Chapter", "Date": "2014-07-21 21:45:16", "ChapterName": "" }, { "Chapter": "102770", "Type": "Chapter", "Date": "2014-07-21 21:45:16", "ChapterName": "" }, { "Chapter": "102760", "Type": "Chapter", "Date": "2014-07-21 21:45:16", "ChapterName": "" }, { "Chapter": "102750", "Type": "Chapter", "Date": "2014-07-21 21:45:16", "ChapterName": "" }, { "Chapter": "102740", "Type": "Chapter", "Date": "2014-07-21 21:45:16", "ChapterName": "" }, { "Chapter": "102730", "Type": "Chapter", "Date": "2014-07-21 21:45:16", "ChapterName": "" }, { "Chapter": "102720", "Type": "Chapter", "Date": "2014-07-21 21:45:15", "ChapterName": "" }, { "Chapter": "102710", "Type": "Chapter", "Date": "2014-07-21 21:45:15", "ChapterName": "" }, { "Chapter": "102700", "Type": "Chapter", "Date": "2014-07-21 21:45:15", "ChapterName": "" }, { "Chapter": "102690", "Type": "Chapter", "Date": "2014-07-21 21:45:15", "ChapterName": "" }, { "Chapter": "102680", "Type": "Chapter", "Date": "2014-07-21 21:45:15", "ChapterName": "" }, { "Chapter": "102670", "Type": "Chapter", "Date": "2014-07-21 21:45:15", "ChapterName": "" }, { "Chapter": "102660", "Type": "Chapter", "Date": "2014-07-21 21:45:15", "ChapterName": "" }, { "Chapter": "102650", "Type": "Chapter", "Date": "2014-07-21 21:45:15", "ChapterName": "" }, { "Chapter": "102640", "Type": "Chapter", "Date": "2014-07-21 21:45:15", "ChapterName": "" }, { "Chapter": "102630", "Type": "Chapter", "Date": "2014-07-21 21:45:15", "ChapterName": "" }, { "Chapter": "102620", "Type": "Chapter", "Date": "2014-07-21 21:45:15", "ChapterName": "" }, { "Chapter": "102610", "Type": "Chapter", "Date": "2014-07-21 21:45:15", "ChapterName": "" }, { "Chapter": "102600", "Type": "Chapter", "Date": "2014-07-21 21:45:14", "ChapterName": "" }, { "Chapter": "102590", "Type": "Chapter", "Date": "2014-07-21 21:45:14", "ChapterName": "" }, { "Chapter": "102580", "Type": "Chapter", "Date": "2014-07-21 21:45:14", "ChapterName": "" }, { "Chapter": "102570", "Type": "Chapter", "Date": "2014-07-21 21:45:14", "ChapterName": "" }, { "Chapter": "102560", "Type": "Chapter", "Date": "2014-07-21 21:45:14", "ChapterName": "" }, { "Chapter": "102550", "Type": "Chapter", "Date": "2014-07-21 21:45:14", "ChapterName": "" }, { "Chapter": "102540", "Type": "Chapter", "Date": "2014-07-21 21:45:14", "ChapterName": "" }, { "Chapter": "102530", "Type": "Chapter", "Date": "2014-07-21 21:45:14", "ChapterName": "" }, { "Chapter": "102520", "Type": "Chapter", "Date": "2014-07-21 21:45:14", "ChapterName": "" }, { "Chapter": "102510", "Type": "Chapter", "Date": "2014-07-21 21:45:14", "ChapterName": "" }, { "Chapter": "102505", "Type": "Chapter", "Date": "2014-07-21 21:46:29", "ChapterName": "" }, { "Chapter": "102500", "Type": "Chapter", "Date": "2014-07-21 21:45:14", "ChapterName": "" }, { "Chapter": "102490", "Type": "Chapter", "Date": "2014-07-21 21:45:14", "ChapterName": "" }, { "Chapter": "102480", "Type": "Chapter", "Date": "2014-07-21 21:45:14", "ChapterName": "" }, { "Chapter": "102470", "Type": "Chapter", "Date": "2014-07-21 21:45:14", "ChapterName": "" }, { "Chapter": "102460", "Type": "Chapter", "Date": "2014-07-21 21:45:13", "ChapterName": "" }, { "Chapter": "102450", "Type": "Chapter", "Date": "2014-07-21 21:45:13", "ChapterName": "" }, { "Chapter": "102440", "Type": "Chapter", "Date": "2014-07-21 21:45:13", "ChapterName": "" }, { "Chapter": "102430", "Type": "Chapter", "Date": "2014-07-21 21:45:13", "ChapterName": "" }, { "Chapter": "102420", "Type": "Chapter", "Date": "2014-07-21 21:45:13", "ChapterName": "" }, { "Chapter": "102410", "Type": "Chapter", "Date": "2014-07-21 21:45:13", "ChapterName": "" }, { "Chapter": "102400", "Type": "Chapter", "Date": "2014-07-21 21:45:13", "ChapterName": "" }, { "Chapter": "102390", "Type": "Chapter", "Date": "2014-07-21 21:45:13", "ChapterName": "" }, { "Chapter": "102380", "Type": "Chapter", "Date": "2014-07-21 21:45:13", "ChapterName": "" }, { "Chapter": "102370", "Type": "Chapter", "Date": "2014-07-21 21:45:13", "ChapterName": "" }, { "Chapter": "102360", "Type": "Chapter", "Date": "2014-07-21 21:45:13", "ChapterName": "" }, { "Chapter": "102350", "Type": "Chapter", "Date": "2014-07-21 21:45:13", "ChapterName": "" }, { "Chapter": "102340", "Type": "Chapter", "Date": "2014-07-21 21:45:13", "ChapterName": "" }, { "Chapter": "102330", "Type": "Chapter", "Date": "2014-07-21 21:45:13", "ChapterName": "" }, { "Chapter": "102320", "Type": "Chapter", "Date": "2014-07-21 21:45:12", "ChapterName": "" }, { "Chapter": "102310", "Type": "Chapter", "Date": "2014-07-21 21:45:12", "ChapterName": "" }, { "Chapter": "102300", "Type": "Chapter", "Date": "2014-07-21 21:45:12", "ChapterName": "" }, { "Chapter": "102290", "Type": "Chapter", "Date": "2014-07-21 21:45:12", "ChapterName": "" }, { "Chapter": "102280", "Type": "Chapter", "Date": "2014-07-21 21:45:12", "ChapterName": "" }, { "Chapter": "102270", "Type": "Chapter", "Date": "2014-07-21 21:45:12", "ChapterName": "" }, { "Chapter": "102260", "Type": "Chapter", "Date": "2014-07-21 21:45:12", "ChapterName": "" }, { "Chapter": "102250", "Type": "Chapter", "Date": "2014-07-21 21:45:12", "ChapterName": "" }, { "Chapter": "102240", "Type": "Chapter", "Date": "2014-07-21 21:45:12", "ChapterName": "" }, { "Chapter": "102230", "Type": "Chapter", "Date": "2014-07-21 21:45:12", "ChapterName": "" }, { "Chapter": "102220", "Type": "Chapter", "Date": "2014-07-21 21:45:12", "ChapterName": "" }, { "Chapter": "102210", "Type": "Chapter", "Date": "2014-07-21 21:45:12", "ChapterName": "" }, { "Chapter": "102200", "Type": "Chapter", "Date": "2014-07-21 21:45:12", "ChapterName": "" }, { "Chapter": "102190", "Type": "Chapter", "Date": "2014-07-21 21:45:12", "ChapterName": "" }, { "Chapter": "102180", "Type": "Chapter", "Date": "2014-07-21 21:45:12", "ChapterName": "" }, { "Chapter": "102170", "Type": "Chapter", "Date": "2014-07-21 21:45:11", "ChapterName": "" }, { "Chapter": "102160", "Type": "Chapter", "Date": "2014-07-21 21:45:11", "ChapterName": "" }, { "Chapter": "102150", "Type": "Chapter", "Date": "2014-07-21 21:45:11", "ChapterName": "" }, { "Chapter": "102140", "Type": "Chapter", "Date": "2014-07-21 21:45:11", "ChapterName": "" }, { "Chapter": "102130", "Type": "Chapter", "Date": "2014-07-21 21:45:11", "ChapterName": "" }, { "Chapter": "102120", "Type": "Chapter", "Date": "2014-07-21 21:45:11", "ChapterName": "" }, { "Chapter": "102110", "Type": "Chapter", "Date": "2014-07-21 21:45:11", "ChapterName": "" }, { "Chapter": "102100", "Type": "Chapter", "Date": "2014-07-21 21:45:11", "ChapterName": "" }, { "Chapter": "102090", "Type": "Chapter", "Date": "2014-07-21 21:45:11", "ChapterName": "" }, { "Chapter": "102080", "Type": "Chapter", "Date": "2014-07-21 21:45:11", "ChapterName": "" }, { "Chapter": "102070", "Type": "Chapter", "Date": "2014-07-21 21:45:11", "ChapterName": "" }, { "Chapter": "102060", "Type": "Chapter", "Date": "2014-07-21 21:45:11", "ChapterName": "" }, { "Chapter": "102050", "Type": "Chapter", "Date": "2014-07-21 21:45:11", "ChapterName": "" }, { "Chapter": "102040", "Type": "Chapter", "Date": "2014-07-21 21:45:11", "ChapterName": "" }, { "Chapter": "102030", "Type": "Chapter", "Date": "2014-07-21 21:45:11", "ChapterName": "" }, { "Chapter": "102020", "Type": "Chapter", "Date": "2014-07-21 21:45:11", "ChapterName": "" }, { "Chapter": "102010", "Type": "Chapter", "Date": "2014-07-21 21:45:10", "ChapterName": "" }, { "Chapter": "102000", "Type": "Chapter", "Date": "2014-07-21 21:45:10", "ChapterName": "" }, { "Chapter": "101990", "Type": "Chapter", "Date": "2014-07-21 21:45:10", "ChapterName": "" }, { "Chapter": "101980", "Type": "Chapter", "Date": "2014-07-21 21:45:10", "ChapterName": "" }, { "Chapter": "101970", "Type": "Chapter", "Date": "2014-07-21 21:45:10", "ChapterName": "" }, { "Chapter": "101960", "Type": "Chapter", "Date": "2014-07-21 21:45:10", "ChapterName": "" }, { "Chapter": "101950", "Type": "Chapter", "Date": "2014-07-21 21:45:10", "ChapterName": "" }, { "Chapter": "101940", "Type": "Chapter", "Date": "2014-07-21 21:45:10", "ChapterName": "" }, { "Chapter": "101930", "Type": "Chapter", "Date": "2014-07-21 21:45:10", "ChapterName": "" }, { "Chapter": "101920", "Type": "Chapter", "Date": "2014-07-21 21:45:10", "ChapterName": "" }, { "Chapter": "101910", "Type": "Chapter", "Date": "2014-07-21 21:45:10", "ChapterName": "" }, { "Chapter": "101900", "Type": "Chapter", "Date": "2014-07-21 21:45:10", "ChapterName": "" }, { "Chapter": "101890", "Type": "Chapter", "Date": "2014-07-21 21:45:10", "ChapterName": "" }, { "Chapter": "101880", "Type": "Chapter", "Date": "2014-07-21 21:45:10", "ChapterName": "" }, { "Chapter": "101870", "Type": "Chapter", "Date": "2014-07-21 21:45:10", "ChapterName": "" }, { "Chapter": "101860", "Type": "Chapter", "Date": "2014-07-21 21:45:10", "ChapterName": "" }, { "Chapter": "101850", "Type": "Chapter", "Date": "2014-07-21 21:45:09", "ChapterName": "" }, { "Chapter": "101840", "Type": "Chapter", "Date": "2014-07-21 21:45:09", "ChapterName": "" }, { "Chapter": "101830", "Type": "Chapter", "Date": "2014-07-21 21:45:09", "ChapterName": "" }, { "Chapter": "101820", "Type": "Chapter", "Date": "2014-07-21 21:45:09", "ChapterName": "" }, { "Chapter": "101810", "Type": "Chapter", "Date": "2014-07-21 21:45:09", "ChapterName": "" }, { "Chapter": "101800", "Type": "Chapter", "Date": "2014-07-21 21:45:09", "ChapterName": "" }, { "Chapter": "101790", "Type": "Chapter", "Date": "2014-07-21 21:45:09", "ChapterName": "" }, { "Chapter": "101780", "Type": "Chapter", "Date": "2014-07-21 21:45:09", "ChapterName": "" }, { "Chapter": "101770", "Type": "Chapter", "Date": "2014-07-21 21:45:09", "ChapterName": "" }, { "Chapter": "101760", "Type": "Chapter", "Date": "2014-07-21 21:45:09", "ChapterName": "" }, { "Chapter": "101750", "Type": "Chapter", "Date": "2014-07-21 21:45:09", "ChapterName": "" }, { "Chapter": "101740", "Type": "Chapter", "Date": "2014-07-21 21:45:09", "ChapterName": "" }, { "Chapter": "101730", "Type": "Chapter", "Date": "2014-07-21 21:45:09", "ChapterName": "" }, { "Chapter": "101720", "Type": "Chapter", "Date": "2014-07-21 21:45:09", "ChapterName": "" }, { "Chapter": "101710", "Type": "Chapter", "Date": "2014-07-21 21:45:09", "ChapterName": "" }, { "Chapter": "101700", "Type": "Chapter", "Date": "2014-07-21 21:45:08", "ChapterName": "" }, { "Chapter": "101690", "Type": "Chapter", "Date": "2014-07-21 21:45:08", "ChapterName": "" }, { "Chapter": "101680", "Type": "Chapter", "Date": "2014-07-21 21:45:08", "ChapterName": "" }, { "Chapter": "101670", "Type": "Chapter", "Date": "2014-07-21 21:45:08", "ChapterName": "" }, { "Chapter": "101660", "Type": "Chapter", "Date": "2014-07-21 21:45:08", "ChapterName": "" }, { "Chapter": "101650", "Type": "Chapter", "Date": "2014-07-21 21:45:08", "ChapterName": "" }, { "Chapter": "101640", "Type": "Chapter", "Date": "2014-07-21 21:45:08", "ChapterName": "" }, { "Chapter": "101630", "Type": "Chapter", "Date": "2014-07-21 21:45:08", "ChapterName": "" }, { "Chapter": "101620", "Type": "Chapter", "Date": "2014-07-21 21:45:08", "ChapterName": "" }, { "Chapter": "101610", "Type": "Chapter", "Date": "2014-07-21 21:45:08", "ChapterName": "" }, { "Chapter": "101600", "Type": "Chapter", "Date": "2014-07-21 21:45:08", "ChapterName": "" }, { "Chapter": "101590", "Type": "Chapter", "Date": "2014-07-21 21:45:08", "ChapterName": "" }, { "Chapter": "101580", "Type": "Chapter", "Date": "2014-07-21 21:45:08", "ChapterName": "" }, { "Chapter": "101570", "Type": "Chapter", "Date": "2014-07-21 21:45:08", "ChapterName": "" }, { "Chapter": "101560", "Type": "Chapter", "Date": "2014-07-21 21:45:08", "ChapterName": "" }, { "Chapter": "101550", "Type": "Chapter", "Date": "2014-07-21 21:45:07", "ChapterName": "" }, { "Chapter": "101540", "Type": "Chapter", "Date": "2014-07-21 21:45:07", "ChapterName": "" }, { "Chapter": "101530", "Type": "Chapter", "Date": "2014-07-21 21:45:07", "ChapterName": "" }, { "Chapter": "101520", "Type": "Chapter", "Date": "2014-07-21 21:45:07", "ChapterName": "" }, { "Chapter": "101510", "Type": "Chapter", "Date": "2014-07-21 21:45:07", "ChapterName": "" }, { "Chapter": "101500", "Type": "Chapter", "Date": "2014-07-21 21:45:07", "ChapterName": "" }, { "Chapter": "101490", "Type": "Chapter", "Date": "2014-07-21 21:45:07", "ChapterName": "" }, { "Chapter": "101480", "Type": "Chapter", "Date": "2014-07-21 21:45:07", "ChapterName": "" }, { "Chapter": "101470", "Type": "Chapter", "Date": "2014-07-21 21:45:07", "ChapterName": "" }, { "Chapter": "101460", "Type": "Chapter", "Date": "2014-07-21 21:45:07", "ChapterName": "" }, { "Chapter": "101450", "Type": "Chapter", "Date": "2014-07-21 21:45:07", "ChapterName": "" }, { "Chapter": "101440", "Type": "Chapter", "Date": "2014-07-21 21:45:07", "ChapterName": "" }, { "Chapter": "101430", "Type": "Chapter", "Date": "2014-07-21 21:45:07", "ChapterName": "" }, { "Chapter": "101420", "Type": "Chapter", "Date": "2014-07-21 21:45:07", "ChapterName": "" }, { "Chapter": "101410", "Type": "Chapter", "Date": "2014-07-21 21:45:06", "ChapterName": "" }, { "Chapter": "101400", "Type": "Chapter", "Date": "2014-07-21 21:45:06", "ChapterName": "" }, { "Chapter": "101390", "Type": "Chapter", "Date": "2014-07-21 21:45:06", "ChapterName": "" }, { "Chapter": "101380", "Type": "Chapter", "Date": "2014-07-21 21:45:06", "ChapterName": "" }, { "Chapter": "101370", "Type": "Chapter", "Date": "2014-07-21 21:45:06", "ChapterName": "" }, { "Chapter": "101360", "Type": "Chapter", "Date": "2014-07-21 21:45:06", "ChapterName": "" }, { "Chapter": "101350", "Type": "Chapter", "Date": "2014-07-21 21:45:06", "ChapterName": "" }, { "Chapter": "101340", "Type": "Chapter", "Date": "2014-07-21 21:45:06", "ChapterName": "" }, { "Chapter": "101330", "Type": "Chapter", "Date": "2014-07-21 21:45:06", "ChapterName": "" }, { "Chapter": "101320", "Type": "Chapter", "Date": "2014-07-21 21:45:05", "ChapterName": "" }, { "Chapter": "101310", "Type": "Chapter", "Date": "2014-07-21 21:45:05", "ChapterName": "" }, { "Chapter": "101300", "Type": "Chapter", "Date": "2014-07-21 21:45:05", "ChapterName": "" }, { "Chapter": "101290", "Type": "Chapter", "Date": "2014-07-21 21:45:05", "ChapterName": "" }, { "Chapter": "101280", "Type": "Chapter", "Date": "2014-07-21 21:45:04", "ChapterName": "" }, { "Chapter": "101270", "Type": "Chapter", "Date": "2014-07-21 21:45:04", "ChapterName": "" }, { "Chapter": "101260", "Type": "Chapter", "Date": "2014-07-21 21:45:04", "ChapterName": "" }, { "Chapter": "101250", "Type": "Chapter", "Date": "2014-07-21 21:45:04", "ChapterName": "" }, { "Chapter": "101240", "Type": "Chapter", "Date": "2014-07-21 21:45:04", "ChapterName": "" }, { "Chapter": "101230", "Type": "Chapter", "Date": "2014-07-21 21:45:04", "ChapterName": "" }, { "Chapter": "101220", "Type": "Chapter", "Date": "2014-07-21 21:45:04", "ChapterName": "" }, { "Chapter": "101210", "Type": "Chapter", "Date": "2014-07-21 21:45:04", "ChapterName": "" }, { "Chapter": "101200", "Type": "Chapter", "Date": "2014-07-21 21:45:04", "ChapterName": "" }, { "Chapter": "101190", "Type": "Chapter", "Date": "2014-07-21 21:45:04", "ChapterName": "" }, { "Chapter": "101180", "Type": "Chapter", "Date": "2014-07-21 21:45:04", "ChapterName": "" }, { "Chapter": "101170", "Type": "Chapter", "Date": "2014-07-21 21:45:04", "ChapterName": "" }, { "Chapter": "101160", "Type": "Chapter", "Date": "2014-07-21 21:45:04", "ChapterName": "" }, { "Chapter": "101150", "Type": "Chapter", "Date": "2014-07-21 21:45:04", "ChapterName": "" }, { "Chapter": "101140", "Type": "Chapter", "Date": "2014-07-21 21:45:04", "ChapterName": "" }, { "Chapter": "101130", "Type": "Chapter", "Date": "2014-07-21 21:45:04", "ChapterName": "" }, { "Chapter": "101120", "Type": "Chapter", "Date": "2014-07-21 21:45:04", "ChapterName": "" }, { "Chapter": "101110", "Type": "Chapter", "Date": "2014-07-21 21:45:03", "ChapterName": "" }, { "Chapter": "101100", "Type": "Chapter", "Date": "2014-07-21 21:45:03", "ChapterName": "" }, { "Chapter": "101090", "Type": "Chapter", "Date": "2014-07-21 21:45:03", "ChapterName": "" }, { "Chapter": "101080", "Type": "Chapter", "Date": "2014-07-21 21:45:03", "ChapterName": "" }, { "Chapter": "101070", "Type": "Chapter", "Date": "2014-07-21 21:45:03", "ChapterName": "" }, { "Chapter": "101060", "Type": "Chapter", "Date": "2014-07-21 21:45:03", "ChapterName": "" }, { "Chapter": "101050", "Type": "Chapter", "Date": "2014-07-21 21:45:03", "ChapterName": "" }, { "Chapter": "101040", "Type": "Chapter", "Date": "2014-07-21 21:45:03", "ChapterName": "" }, { "Chapter": "101030", "Type": "Chapter", "Date": "2014-07-21 21:45:03", "ChapterName": "" }, { "Chapter": "101020", "Type": "Chapter", "Date": "2014-07-21 21:45:03", "ChapterName": "" }, { "Chapter": "101010", "Type": "Chapter", "Date": "2014-07-21 21:45:03", "ChapterName": "" }, { "Chapter": "101000", "Type": "Chapter", "Date": "2014-07-21 21:45:03", "ChapterName": "" }, { "Chapter": "100990", "Type": "Chapter", "Date": "2014-07-21 21:45:03", "ChapterName": "" }, { "Chapter": "100980", "Type": "Chapter", "Date": "2014-07-21 21:45:03", "ChapterName": "" }, { "Chapter": "100970", "Type": "Chapter", "Date": "2014-07-21 21:45:02", "ChapterName": "" }, { "Chapter": "100960", "Type": "Chapter", "Date": "2014-07-21 21:45:02", "ChapterName": "" }, { "Chapter": "100950", "Type": "Chapter", "Date": "2014-07-21 21:45:02", "ChapterName": "" }, { "Chapter": "100940", "Type": "Chapter", "Date": "2014-07-21 21:45:02", "ChapterName": "" }, { "Chapter": "100930", "Type": "Chapter", "Date": "2014-07-21 21:45:02", "ChapterName": "" }, { "Chapter": "100920", "Type": "Chapter", "Date": "2014-07-21 21:45:02", "ChapterName": "" }, { "Chapter": "100910", "Type": "Chapter", "Date": "2014-07-21 21:45:02", "ChapterName": "" }, { "Chapter": "100900", "Type": "Chapter", "Date": "2014-07-21 21:45:02", "ChapterName": "" }, { "Chapter": "100890", "Type": "Chapter", "Date": "2014-07-21 21:45:02", "ChapterName": "" }, { "Chapter": "100880", "Type": "Chapter", "Date": "2014-07-21 21:45:02", "ChapterName": "" }, { "Chapter": "100870", "Type": "Chapter", "Date": "2014-07-21 21:45:02", "ChapterName": "" }, { "Chapter": "100860", "Type": "Chapter", "Date": "2014-07-21 21:45:02", "ChapterName": "" }, { "Chapter": "100850", "Type": "Chapter", "Date": "2014-07-21 21:45:02", "ChapterName": "" }, { "Chapter": "100840", "Type": "Chapter", "Date": "2014-07-21 21:45:02", "ChapterName": "" }, { "Chapter": "100830", "Type": "Chapter", "Date": "2014-07-21 21:45:02", "ChapterName": "" }, { "Chapter": "100820", "Type": "Chapter", "Date": "2014-07-21 21:45:01", "ChapterName": "" }, { "Chapter": "100810", "Type": "Chapter", "Date": "2014-07-21 21:45:01", "ChapterName": "" }, { "Chapter": "100800", "Type": "Chapter", "Date": "2014-07-21 21:45:01", "ChapterName": "" }, { "Chapter": "100790", "Type": "Chapter", "Date": "2014-07-21 21:45:01", "ChapterName": "" }, { "Chapter": "100780", "Type": "Chapter", "Date": "2014-07-21 21:45:01", "ChapterName": "" }, { "Chapter": "100770", "Type": "Chapter", "Date": "2014-07-21 21:45:01", "ChapterName": "" }, { "Chapter": "100760", "Type": "Chapter", "Date": "2014-07-21 21:45:01", "ChapterName": "" }, { "Chapter": "100750", "Type": "Chapter", "Date": "2014-07-21 21:45:01", "ChapterName": "" }, { "Chapter": "100740", "Type": "Chapter", "Date": "2014-07-21 21:45:01", "ChapterName": "" }, { "Chapter": "100730", "Type": "Chapter", "Date": "2014-07-21 21:45:01", "ChapterName": "" }, { "Chapter": "100720", "Type": "Chapter", "Date": "2014-07-21 21:45:01", "ChapterName": "" }, { "Chapter": "100710", "Type": "Chapter", "Date": "2014-07-21 21:45:01", "ChapterName": "" }, { "Chapter": "100700", "Type": "Chapter", "Date": "2014-07-21 21:45:01", "ChapterName": "" }, { "Chapter": "100690", "Type": "Chapter", "Date": "2014-07-21 21:45:00", "ChapterName": "" }, { "Chapter": "100680", "Type": "Chapter", "Date": "2014-07-21 21:45:00", "ChapterName": "" }, { "Chapter": "100670", "Type": "Chapter", "Date": "2014-07-21 21:45:00", "ChapterName": "" }, { "Chapter": "100660", "Type": "Chapter", "Date": "2014-07-21 21:45:00", "ChapterName": "" }, { "Chapter": "100650", "Type": "Chapter", "Date": "2014-07-21 21:45:00", "ChapterName": "" }, { "Chapter": "100640", "Type": "Chapter", "Date": "2014-07-21 21:45:00", "ChapterName": "" }, { "Chapter": "100630", "Type": "Chapter", "Date": "2014-07-21 21:45:00", "ChapterName": "" }, { "Chapter": "100620", "Type": "Chapter", "Date": "2014-07-21 21:45:00", "ChapterName": "" }, { "Chapter": "100610", "Type": "Chapter", "Date": "2014-07-21 21:45:00", "ChapterName": "" }, { "Chapter": "100600", "Type": "Chapter", "Date": "2014-07-21 21:45:00", "ChapterName": "" }, { "Chapter": "100590", "Type": "Chapter", "Date": "2014-07-21 21:44:59", "ChapterName": "" }, { "Chapter": "100580", "Type": "Chapter", "Date": "2014-07-21 21:44:59", "ChapterName": "" }, { "Chapter": "100570", "Type": "Chapter", "Date": "2014-07-21 21:44:59", "ChapterName": "" }, { "Chapter": "100560", "Type": "Chapter", "Date": "2014-07-21 21:44:59", "ChapterName": "" }, { "Chapter": "100550", "Type": "Chapter", "Date": "2014-07-21 21:44:59", "ChapterName": "" }, { "Chapter": "100540", "Type": "Chapter", "Date": "2014-07-21 21:44:59", "ChapterName": "" }, { "Chapter": "100530", "Type": "Chapter", "Date": "2014-07-21 21:44:59", "ChapterName": "" }, { "Chapter": "100525", "Type": "Chapter", "Date": "2014-07-21 21:46:12", "ChapterName": "" }, { "Chapter": "100520", "Type": "Chapter", "Date": "2014-07-21 21:44:59", "ChapterName": "" }, { "Chapter": "100510", "Type": "Chapter", "Date": "2014-07-21 21:44:59", "ChapterName": "" }, { "Chapter": "100500", "Type": "Chapter", "Date": "2014-07-21 21:44:59", "ChapterName": "" }, { "Chapter": "100490", "Type": "Chapter", "Date": "2014-07-21 21:44:59", "ChapterName": "" }, { "Chapter": "100480", "Type": "Chapter", "Date": "2014-07-21 21:44:59", "ChapterName": "" }, { "Chapter": "100470", "Type": "Chapter", "Date": "2014-07-21 21:44:59", "ChapterName": "" }, { "Chapter": "100460", "Type": "Chapter", "Date": "2014-07-21 21:44:58", "ChapterName": "" }, { "Chapter": "100450", "Type": "Chapter", "Date": "2014-07-21 21:44:58", "ChapterName": "" }, { "Chapter": "100440", "Type": "Chapter", "Date": "2014-07-21 21:44:58", "ChapterName": "" }, { "Chapter": "100430", "Type": "Chapter", "Date": "2014-07-21 21:44:58", "ChapterName": "" }, { "Chapter": "100420", "Type": "Chapter", "Date": "2014-07-21 21:44:58", "ChapterName": "" }, { "Chapter": "100410", "Type": "Chapter", "Date": "2014-07-21 21:44:58", "ChapterName": "" }, { "Chapter": "100400", "Type": "Chapter", "Date": "2014-07-21 21:44:58", "ChapterName": "" }, { "Chapter": "100390", "Type": "Chapter", "Date": "2014-07-21 21:44:58", "ChapterName": "" }, { "Chapter": "100380", "Type": "Chapter", "Date": "2014-07-21 21:44:57", "ChapterName": "" }, { "Chapter": "100370", "Type": "Chapter", "Date": "2014-07-21 21:44:57", "ChapterName": "" }, { "Chapter": "100360", "Type": "Chapter", "Date": "2014-07-21 21:44:57", "ChapterName": "" }, { "Chapter": "100350", "Type": "Chapter", "Date": "2014-07-21 21:44:57", "ChapterName": "" }, { "Chapter": "100340", "Type": "Chapter", "Date": "2014-07-21 21:44:57", "ChapterName": "" }, { "Chapter": "100330", "Type": "Chapter", "Date": "2014-07-21 21:44:56", "ChapterName": "" }, { "Chapter": "100320", "Type": "Chapter", "Date": "2014-07-21 21:44:56", "ChapterName": "" }, { "Chapter": "100310", "Type": "Chapter", "Date": "2014-07-21 21:44:56", "ChapterName": "" }, { "Chapter": "100300", "Type": "Chapter", "Date": "2014-07-21 21:44:56", "ChapterName": "" }, { "Chapter": "100290", "Type": "Chapter", "Date": "2014-07-21 21:44:56", "ChapterName": "" }, { "Chapter": "100280", "Type": "Chapter", "Date": "2014-07-21 21:44:56", "ChapterName": "" }, { "Chapter": "100270", "Type": "Chapter", "Date": "2014-07-21 21:44:56", "ChapterName": "" }, { "Chapter": "100260", "Type": "Chapter", "Date": "2014-07-21 21:44:56", "ChapterName": "" }, { "Chapter": "100250", "Type": "Chapter", "Date": "2014-07-21 21:44:56", "ChapterName": "" }, { "Chapter": "100240", "Type": "Chapter", "Date": "2014-07-21 21:44:56", "ChapterName": "" }, { "Chapter": "100230", "Type": "Chapter", "Date": "2014-07-21 21:44:55", "ChapterName": "" }, { "Chapter": "100220", "Type": "Chapter", "Date": "2014-07-21 21:44:55", "ChapterName": "" }, { "Chapter": "100210", "Type": "Chapter", "Date": "2014-07-21 21:44:55", "ChapterName": "" }, { "Chapter": "100200", "Type": "Chapter", "Date": "2014-07-21 21:44:55", "ChapterName": "" }, { "Chapter": "100190", "Type": "Chapter", "Date": "2014-07-21 21:44:55", "ChapterName": "" }, { "Chapter": "100180", "Type": "Chapter", "Date": "2014-07-21 21:44:55", "ChapterName": "" }, { "Chapter": "100170", "Type": "Chapter", "Date": "2014-07-21 21:44:55", "ChapterName": "" }, { "Chapter": "100160", "Type": "Chapter", "Date": "2014-07-21 21:44:55", "ChapterName": "" }, { "Chapter": "100150", "Type": "Chapter", "Date": "2014-07-21 21:44:55", "ChapterName": "" }, { "Chapter": "100140", "Type": "Chapter", "Date": "2014-07-21 21:44:54", "ChapterName": "" }, { "Chapter": "100130", "Type": "Chapter", "Date": "2014-07-21 21:44:54", "ChapterName": "" }, { "Chapter": "100120", "Type": "Chapter", "Date": "2014-07-21 21:44:54", "ChapterName": "" }, { "Chapter": "100110", "Type": "Chapter", "Date": "2014-07-21 21:44:54", "ChapterName": "" }, { "Chapter": "100100", "Type": "Chapter", "Date": "2014-07-21 21:44:54", "ChapterName": "" }, { "Chapter": "100090", "Type": "Chapter", "Date": "2014-07-21 21:44:54", "ChapterName": "" }, { "Chapter": "100080", "Type": "Chapter", "Date": "2014-07-21 21:44:54", "ChapterName": "" }, { "Chapter": "100070", "Type": "Chapter", "Date": "2014-07-21 21:44:54", "ChapterName": "" }, { "Chapter": "100060", "Type": "Chapter", "Date": "2014-07-21 21:44:53", "ChapterName": "" }, { "Chapter": "100050", "Type": "Chapter", "Date": "2014-07-21 21:44:53", "ChapterName": "" }, { "Chapter": "100040", "Type": "Chapter", "Date": "2014-07-21 21:44:53", "ChapterName": "" }, { "Chapter": "100030", "Type": "Chapter", "Date": "2014-07-21 21:44:53", "ChapterName": "" }, { "Chapter": "100020", "Type": "Chapter", "Date": "2014-07-21 21:44:52", "ChapterName": "" }, { "Chapter": "100010", "Type": "Chapter", "Date": "2014-07-21 21:44:51", "ChapterName": "" }];
+			vm.NumSubs = 5775;
+			vm.Subbed = false;
+			vm.Notification = true;
+			vm.LastChapterRead = "";
+			vm.IsAdmin = false;
+			vm.RelatedSeriesJSON = [{ "OrderID": 4, "IndexName": "Jubei-Yagyu-Dies", "SeriesName": "Jubei Yagyu Dies" }, { "OrderID": 3, "IndexName": "Song-Of-The-Long-March", "SeriesName": "Song of the Long March" }, { "OrderID": 2, "IndexName": "Kakuriyo-Monogatari", "SeriesName": "Kakuriyo Monogatari" }, { "OrderID": 1, "IndexName": "Color-of-Rage", "SeriesName": "Color of Rage" }];
+
+			vm.Subbing = false;
+			vm.Subscribe = function () {
+				$("#AuthModal").modal("show");
+
+			};
+			if (window.location.hash == "#email") {
+				ga('send', 'event', {
+					'eventCategory': "Email Click",
+					'eventAction': "Kingdom",
+					'eventLabel': "Manga Info"
+				});
+			}
+
+			vm.PageOne = "-page-1", "yes" == Cookies.get("FullPage") && (vm.PageOne = ""), vm.Unavailable = !1, "#unavailable" == window.location.hash && (vm.Unavailable = !0), vm.FormatDate = function (e) { var t = moment(e).subtract(9, "hour"), n = moment(), m = n.diff(t, "hours"); return n.isSame(t, "d") ? moment(e).subtract(9, "hour").fromNow() : m < 24 ? moment(e).subtract(9, "hour").calendar() : moment(e).subtract(9, "hour").format("L") }, vm.IsNew = function (e) { var t = moment(e).subtract(1, "hour"); return moment().diff(t, "hours") < 24 }, vm.ChapterDisplay = function (e) { var t = parseInt(e.slice(1, -1)), n = e[e.length - 1]; return 0 == n ? t : t + "." + n }, vm.ChapterURLEncode = function (e) { Index = ""; var t = e.substring(0, 1); 1 != t && (Index = "-index-" + t); var n = parseInt(e.slice(1, -1)), m = "", a = e[e.length - 1]; return 0 != a && (m = "." + a), "-chapter-" + n + m + Index + vm.PageOne + ".html" }, vm.ShowInfoMobile = !1, vm.LimitChapter = 10, vm.ToggleNotification = function () { vm.Notification = !vm.Notification, $http({ method: "POST", url: "notification.php", data: { IndexName: vm.IndexName, Notification: vm.Notification } }).then(function (e) { }, function (e) { }) }, vm.Comments = [], vm.GettingComments = !0, vm.ReplyCount = 0, vm.GetComments = function () { vm.GettingComments = !0, $http({ method: "POST", url: "comment.get.php", data: { IndexName: vm.IndexName } }).then(function (e) { if (e.data.success) for (vm.Comments = e.data.val, vm.ReplyCount = 0, i = 0; i < vm.Comments.length; i++)vm.ReplyCount += parseInt(vm.Comments[i].ReplyCount); else vm.CommentsWarning = e.data.val; vm.GettingComments = !1 }, function (e) { vm.CommentsWarning = "Network Error. Please try again later.", vm.GettingComments = !1 }) }, vm.GetComments(), vm.Commenting = !1, vm.Comment = function () { vm.Commenting = !0, grecaptcha.execute(vm.CaptchaPublicKey, { action: "homepage" }).then(function (e) { $http({ method: "POST", url: "comment.submit.php", data: { IndexName: vm.IndexName, CommentContent: vm.CommentContent, Captcha: e } }).then(function (e) { if (e.data.success) for (vm.Comments = e.data.val, vm.CommentContent = "", vm.ReplyCount = 0, i = 0; i < vm.Comments.length; i++)vm.ReplyCount += parseInt(vm.Comments[i].ReplyCount); else alert(e.data.val); vm.Commenting = !1 }, function (e) { alert("Network Error. Please try again later."), vm.Commenting = !1 }) }) }, vm.DeleteComment = function (e) { $http({ method: "POST", url: "comment.delete.php", data: { CommentID: e.CommentID, IndexName: vm.IndexName } }).then(function (e) { if (e.data.success) for (vm.Comments = e.data.val, vm.ReplyCount = 0, i = 0; i < vm.Comments.length; i++)vm.ReplyCount += parseInt(vm.Comments[i].ReplyCount); else alert(e.data.val) }, function (e) { alert("Network Error. Please try again later.") }) }, vm.ToggleLike = function (e) { e.Liked = !e.Liked, $http({ method: "POST", url: "comment.like.php", data: { CommentID: e.CommentID, Liked: e.Liked } }).then(function (e) { }, function (e) { alert(e.data) }), e.Liked ? e.LikeCount++ : e.LikeCount-- }, vm.Reply = function (e) { e.Replying = !0, grecaptcha.execute(vm.CaptchaPublicKey, { action: "homepage" }).then(function (t) { $http({ method: "POST", url: "comment.reply.php", data: { TargetID: e.CommentID, ReplyMessage: e.ReplyMessage, Captcha: t } }).then(function (t) { t.data.success ? (e.ReplyLimit++, vm.ReplyCount++, e.ReplyMessage = "", e.Replies = t.data.val) : alert(t.data.val), e.Replying = !1 }, function (t) { alert("Network Error. Please try again later."), e.Replying = !1 }) }) }, vm.DeleteReply = function (e, t) { $http({ method: "POST", url: "reply.delete.php", data: { CommentID: t.CommentID, TargetID: e.CommentID } }).then(function (t) { t.data.success ? (e.Replies = t.data.val, vm.ReplyCount--) : alert(t.data.val) }, function (e) { alert("Network Error. Please try again later.") }) }, vm.ShowReplySection = function (e) { e.ShowReply = !0, ReplyBoxID = "#Reply" + e.CommentID, $("html, body").animate({ scrollTop: $(ReplyBoxID).offset().top - 200 }, 500, function () { $(ReplyBoxID).find("textarea").focus() }) }, vm.ShowAllReplies = function (e) { e.ShowMoreHide = !0, $http({ method: "POST", url: "reply.get.php", data: { TargetID: e.CommentID } }).then(function (t) { t.data.success ? (e.Replies = t.data.val, e.ReplyLimit = 100) : alert(t.data.val), e.ShowMoreHide = !1 }, function (t) { alert("Network Error. Please try again later."), e.ShowMoreHide = !1 }) };
+		};
+		app.controller("MainCtrl", MainFunction);
+	</script>
+</body>
+
+</html>
